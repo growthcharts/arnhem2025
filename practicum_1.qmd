@@ -1,5 +1,5 @@
 ---
-title: "Oefening 1"
+title: "Practicum 1"
 ---
 
 ### Doel

@@ -1,0 +1,53 @@
+---
+title: "Practicum 2"
+---
+
+### Doel
+
+Deze oefening is bedoeld om de D-score te berekenen op basis van het Van Wiechenschema. 
+
+- Je ziet hoe JAMES automatische de D-score berekent
+- Je leert hoe je de D-score kunt berekenen voor een dataset met een groep kinderen met het D-score package
+- Je leert dezelfde berekening te doen via de D-score calculator
+
+### Voorbereiding
+
+Indien je Oefening 1 heb overgeslagen installeer het `dscore` package:
+
+```{r eval=FALSE}
+install.packages("dscore")
+```
+
+
+### Opdracht 1 - JAMES
+
+Ga naar de [JAMES demo-app](https://tnochildhealthstatistics.shinyapps.io/james_tryout/). Selecteer Groep "SMOCK" en klik dan op menu item "Ontwikkeling". Je ziet de Een D-score diagram van Laura S. 
+
+Selecter daarna de groep "Pinkeltje". Van deze kinderen zijn geen Van Wiechen metingen beschikbaar. Je ziet het menu item "Ontwikkeling" niet getoond wordt.
+
+### Opdracht 2 - dscore
+
+Het `dscore` package bevat de `dscore()` functie, die we gebruiken om de D-score en de DAZ te berekenen. 
+
+```{r}
+library(dscore)
+dim(milestones)
+```
+
+Bereken de D-score en de DAZ voor deze kinderen. Hoeveel kinderen zijn er?
+
+:::{.callout-note}
+Gebruik `?dscore` en `?milestones` om de help te raadplegen.
+:::
+
+```{r include=FALSE}
+dscore(milestones)
+```
+
+:::{.callout-note}
+Voor gevorderden: Wat betekenen de kolommen `p` en `sem`? .
+:::
+
+### Opdracht 3 - D-score calculator
+
+Exporteer de `milestone` data als CSV-bestand, en bereken de D-score met de [D-score calculator](https://tnochildhealthstatistics.shinyapps.io/dcalculator/). Zijn de resultaten hetzelfde?

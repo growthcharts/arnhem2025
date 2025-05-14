@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-1.6.42" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 
 
-<title>Programma – JAMES Workshop</title>
+<title>Prakticum 2 – JAMES Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +22,43 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<!-- htmldependencies:E3FAD763 -->
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,73 +88,75 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css" />
 </head>
 
-<body class="nav-fixed">
+<body>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="/index.html">
     <span class="navbar-title">JAMES Workshop</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+  aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation"
+  onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./program.html" aria-current="page"> 
+    <a class="nav-link" href="/program.html"> 
 <span class="menu-text">Programma</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./API.html"> 
+    <a class="nav-link" href="/API.html"> 
 <span class="menu-text">API</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-onderwerpen" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-onderwerpen" role="link" data-bs-toggle="dropdown" aria-expanded="false" >
  <span class="menu-text">Onderwerpen</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-onderwerpen">    
         <li>
-    <a class="dropdown-item" href="./introductie.html">
+    <a class="dropdown-item" href="/introductie.html">
  <span class="dropdown-text">JAMES</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./dscore.html">
+    <a class="dropdown-item" href="/dscore.html">
  <span class="dropdown-text">D-score</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./zscore.html">
+    <a class="dropdown-item" href="/zscore.html">
  <span class="dropdown-text">Z-score</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./screening.html">
+    <a class="dropdown-item" href="/screening.html">
  <span class="dropdown-text">Screening</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-practica" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Practica</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-oefeningen" role="link" data-bs-toggle="dropdown" aria-expanded="false" >
+ <span class="menu-text">Oefeningen</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-practica">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-oefeningen">    
         <li>
-    <a class="dropdown-item" href="./practicum_1.html">
- <span class="dropdown-text">Practicum 1</span></a>
+    <a class="dropdown-item" href="/oefening_1.qmd">
+ <span class="dropdown-text">Oefening 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./practicum_2.html">
- <span class="dropdown-text">Practicum 2</span></a>
+    <a class="dropdown-item" href="/oefening_2.html">
+ <span class="dropdown-text">Oefening 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./practicum_3.html">
- <span class="dropdown-text">Practicum 3</span></a>
+    <a class="dropdown-item" href="/oefening_3.html">
+ <span class="dropdown-text">Oefening 3</span></a>
   </li>  
     </ul>
   </li>
@@ -149,17 +171,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
-<p><img src="img/tno-logo.svg" alt="TNO logo" style="height: 50px;"></p>
-</div></div>
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <div id="quarto-toc-target"></div>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Programma</h1>
+<h1 class="title">Prakticum 2</h1>
 </div>
 
 
@@ -175,68 +195,94 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-
-<div class="table">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Tijd</th>
-<th>Onderdeel</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>10:00</td>
-<td>Introductie JAMES/iJGZ</td>
-</tr>
-<tr class="even">
-<td>10:30</td>
-<td><strong>Oefening 1</strong> JAMES</td>
-</tr>
-<tr class="odd">
-<td>11:00</td>
-<td>PAUZE</td>
-</tr>
-<tr class="even">
-<td>11:10</td>
-<td>D-score</td>
-</tr>
-<tr class="odd">
-<td>11:45</td>
-<td><strong>Oefening</strong> <code>dscore</code></td>
-</tr>
-<tr class="even">
-<td>12:15</td>
-<td>LUNCH</td>
-</tr>
-<tr class="odd">
-<td>13:45</td>
-<td>SDS, screening</td>
-</tr>
-<tr class="even">
-<td>14:15</td>
-<td><strong>Oefening</strong> <code>centile</code>, <code>growthscreener</code></td>
-</tr>
-<tr class="odd">
-<td>15:00</td>
-<td>Nieuwe ontwikkelingen <code>tab10</code>, vlak diagrammen</td>
-</tr>
-<tr class="even">
-<td>15:30</td>
-<td>Vragenuurtje</td>
-</tr>
-<tr class="odd">
-<td>16:00</td>
-<td>SLUITING</td>
-</tr>
-</tbody>
-</table>
-
-
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#doel" id="toc-doel">Doel</a></li>
+  <li><a href="#voorbereiding" id="toc-voorbereiding">Voorbereiding</a></li>
+  <li><a href="#opdracht-1---james" id="toc-opdracht-1---james">Opdracht 1 - JAMES</a></li>
+  <li><a href="#opdracht-2---dscore" id="toc-opdracht-2---dscore">Opdracht 2 - dscore</a></li>
+  <li><a href="#opdracht-3---d-score-calculator" id="toc-opdracht-3---d-score-calculator">Opdracht 3 - D-score calculator</a></li>
+  </ul>
+</nav>
+<section id="doel" class="level3">
+<h3>Doel</h3>
+<p>Deze oefening is bedoeld om de D-score te berekenen op basis van het Van Wiechenschema.</p>
+<ul>
+<li>Je ziet hoe JAMES automatische de D-score berekent</li>
+<li>Je leert hoe je de D-score kunt berekenen voor een dataset met een groep kinderen met het D-score package</li>
+<li>Je leert dezelfde berekening te doen via de D-score calculator</li>
+</ul>
+</section>
+<section id="voorbereiding" class="level3">
+<h3>Voorbereiding</h3>
+<p>Indien je Oefening 1 heb overgeslagen installeer het <code>dscore</code> package:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dscore&quot;</span>)</span></code></pre></div>
 </div>
+</section>
+<section id="opdracht-1---james" class="level3">
+<h3>Opdracht 1 - JAMES</h3>
+<p>Ga naar de <a href="https://tnochildhealthstatistics.shinyapps.io/james_tryout/">JAMES demo-app</a>. Selecteer Groep “SMOCK” en klik dan op menu item “Ontwikkeling”. Je ziet de Een D-score diagram van Laura S.</p>
+<p>Selecter daarna de groep “Pinkeltje”. Van deze kinderen zijn geen Van Wiechen metingen beschikbaar. Je ziet het menu item “Ontwikkeling” niet getoond wordt.</p>
+</section>
+<section id="opdracht-2---dscore" class="level3">
+<h3>Opdracht 2 - dscore</h3>
+<p>Het <code>dscore</code> package bevat de <code>dscore()</code> functie, die we gebruiken om de D-score en de DAZ te berekenen.</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dscore)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(milestones)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 100  62</code></pre>
+</div>
+</div>
+<p>Bereken de D-score en de DAZ voor deze kinderen. Hoeveel kinderen zijn er?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class='callout-icon'></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Gebruik <code>?dscore</code> en <code>?milestones</code> om de help te raadplegen.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class='callout-icon'></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Voor gevorderden: Wat betekenen de kolommen <code>p</code> en <code>sem</code>? .</p>
+</div>
+</div>
+</section>
+<section id="opdracht-3---d-score-calculator" class="level3">
+<h3>Opdracht 3 - D-score calculator</h3>
+<p>Exporteer de <code>milestone</code> data als CSV-bestand, en bereken de D-score met de <a href="https://tnochildhealthstatistics.shinyapps.io/dcalculator/">D-score calculator</a>. Zijn de resultaten hetzelfde?</p>
+<div id="quarto-navigation-envelope" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyLXRpdGxl">JAMES Workshop</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXItdGl0bGU=">JAMES Workshop</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6UHJvZ3JhbW1h">Programma</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L3Byb2dyYW0uaHRtbA==">/program.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6QVBJ">API</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L0FQSS5odG1s">/API.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6T25kZXJ3ZXJwZW4=">Onderwerpen</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6SkFNRVM=">JAMES</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2ludHJvZHVjdGllLmh0bWw=">/introductie.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6RC1zY29yZQ==">D-score</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RzY29yZS5odG1s">/dscore.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6Wi1zY29yZQ==">Z-score</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L3pzY29yZS5odG1s">/zscore.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6U2NyZWVuaW5n">Screening</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L3NjcmVlbmluZy5odG1s">/screening.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6T2VmZW5pbmdlbg==">Oefeningen</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6T2VmZW5pbmcgMQ==">Oefening 1</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L29lZmVuaW5nXzEucW1k">/oefening_1.qmd</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6T2VmZW5pbmcgMg==">Oefening 2</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L29lZmVuaW5nXzIuaHRtbA==">/oefening_2.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6T2VmZW5pbmcgMw==">Oefening 3</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L29lZmVuaW5nXzMuaHRtbA==">/oefening_3.html</span></p>
+<div class="hidden quarto-markdown-envelope-contents" data-render-id="bWFyZ2luLWhlYWRlcg==">
+<div class="margin-header-item">
+<p><img src="img/tno-logo.svg" alt="TNO logo" style="height: 50px;" /></p>
+</div>
+</div>
+</div>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGF0aXRsZQ==">Prakticum 2 – JAMES Workshop</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU=">Prakticum 2 – JAMES Workshop</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZHRpdGxl">Prakticum 2 – JAMES Workshop</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlbmFtZQ==">JAMES Workshop</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw=="></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZGRkZXNj"></span></p>
+</div>
+</section>
 
 </main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<script id = "quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -655,7 +701,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 </div> <!-- /content -->
 
+</body>
 
-
-
-</body></html>
+</html>

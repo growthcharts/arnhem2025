@@ -4,7 +4,9 @@ title: "JAMES workshop Arnhem Mei 2025"
 
 ## Doelgroep
 
-Deze workshop is bedoeld voor data-specialisten in de JGZ die (willen gaan) werken met het [Joint Automatic Measurement and Evaluation (JAMES)](https://github.com/growthcharts/james) platform.
+Deze workshop is bedoeld voor data-specialisten in de JGZ die (willen gaan) werken met het [Joint Automatic Measurement and Evaluation (JAMES)](https://github.com/growthcharts/james) platform. 
+
+Bekendheid met `R` is gewenst.
 
 ## Leerdoelen
 
@@ -12,7 +14,8 @@ Het doel van deze workshop is
 
 - kennismaken met JAMES,
 - inzicht krijgen op de architectuur van JAMES,
-- oefenen met aanroepen van JAMES en onderdelen daavan,
+- aanroepen van JAMES 
+- werken met de onderliggende R-packages,
 - kennismaken met nieuwe ontwikkelingen,
 - leren hoe JAMES toe te passen in de praktijk.
 
@@ -22,14 +25,14 @@ JAMES is een open-source platform voor het uitvoeren van statistische analyses e
 
 JAMES is onderdeel van het [iJGZ systeem](https://www.tno.nl/nl/gezond/jeugd-gezondheid/i-jgz-gezondheid-bevorderen/) van TNO, Afdeling Jeugdgezondheidszorg.
 
-## Workshop begeleider
+## Docent
 
 [Prof. dr. Stef van Buuren](https://stefvanbuuren.name), ontwikkelaar van JAMES.
 
 ## Contact
 
-**Licensing:** [olivier.blansonhenkemans \[at\] tno.nl](mailto:olivier.blansonhenkemans@tno.nl)  
-**Technical issues:** [stef.vanbuuren \[at\] tno.nl](mailto:stef.vanbuuren@tno.nl)
+**Licenties:** [olivier.blansonhenkemans \[at\] tno.nl](mailto:olivier.blansonhenkemans@tno.nl)  
+**Technische zaken:** [stef.vanbuuren \[at\] tno.nl](mailto:stef.vanbuuren@tno.nl)
 
 ## Auteursrecht en Disclaimer
 

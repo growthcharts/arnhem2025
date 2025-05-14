@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Oefening 2 – JAMES Workshop</title>
+<title>Practicum 2 – JAMES Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -130,10 +130,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./API.html"> 
 <span class="menu-text">API</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Oefening_1.html"> 
-<span class="menu-text">Oefening 1</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-onderwerpen" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Onderwerpen</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-onderwerpen">    
+        <li>
+    <a class="dropdown-item" href="./introductie.html">
+ <span class="dropdown-text">JAMES</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./dscore.html">
+ <span class="dropdown-text">D-score</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./zscore.html">
+ <span class="dropdown-text">Z-score</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./screening.html">
+ <span class="dropdown-text">Screening</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-practica" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Practica</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-practica">    
+        <li>
+    <a class="dropdown-item" href="./practicum_1.html">
+ <span class="dropdown-text">Practicum 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./practicum_2.html">
+ <span class="dropdown-text">Practicum 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./practicum_3.html">
+ <span class="dropdown-text">Practicum 3</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -154,14 +192,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#doel" id="toc-doel" class="nav-link active" data-scroll-target="#doel">Doel</a></li>
   <li><a href="#voorbereiding" id="toc-voorbereiding" class="nav-link" data-scroll-target="#voorbereiding">Voorbereiding</a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#james-aanroepen" id="toc-james-aanroepen" class="nav-link" data-scroll-target="#james-aanroepen">JAMES aanroepen</a></li>
-  <li><a href="#james-response-format" id="toc-james-response-format" class="nav-link" data-scroll-target="#james-response-format">JAMES response format</a></li>
-  <li><a href="#opdracht-1" id="toc-opdracht-1" class="nav-link" data-scroll-target="#opdracht-1">Opdracht 1</a></li>
-  <li><a href="#opsturen-van-data" id="toc-opsturen-van-data" class="nav-link" data-scroll-target="#opsturen-van-data">Opsturen van data</a></li>
-  <li><a href="#opdracht-2" id="toc-opdracht-2" class="nav-link" data-scroll-target="#opdracht-2">Opdracht 2</a></li>
-  <li><a href="#data-converteren-naar-json" id="toc-data-converteren-naar-json" class="nav-link" data-scroll-target="#data-converteren-naar-json">Data converteren naar JSON</a></li>
-  <li><a href="#opdracht-3" id="toc-opdracht-3" class="nav-link" data-scroll-target="#opdracht-3">Opdracht 3</a></li>
+  <li><a href="#opdracht-1---james" id="toc-opdracht-1---james" class="nav-link" data-scroll-target="#opdracht-1---james">Opdracht 1 - JAMES</a></li>
+  <li><a href="#opdracht-2---dscore" id="toc-opdracht-2---dscore" class="nav-link" data-scroll-target="#opdracht-2---dscore">Opdracht 2 - dscore</a></li>
+  <li><a href="#opdracht-3---d-score-calculator" id="toc-opdracht-3---d-score-calculator" class="nav-link" data-scroll-target="#opdracht-3---d-score-calculator">Opdracht 3 - D-score calculator</a></li>
   </ul>
 </nav>
     </div>
@@ -170,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Oefening 2</h1>
+<h1 class="title">Practicum 2</h1>
 </div>
 
 
@@ -191,8 +224,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="doel">Doel</h3>
 <p>Deze oefening is bedoeld om de D-score te berekenen op basis van het Van Wiechenschema.</p>
 <ul>
-<li>Je leert hoe je de D-score kunt berekenen voor een dataset met een groep kinderen</li>
-<li>Je leert om het diagram</li>
+<li>Je ziet hoe JAMES automatische de D-score berekent</li>
+<li>Je leert hoe je de D-score kunt berekenen voor een dataset met een groep kinderen met het D-score package</li>
+<li>Je leert dezelfde berekening te doen via de D-score calculator</li>
 </ul>
 </section>
 <section id="voorbereiding" class="level3">
@@ -202,207 +236,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dscore"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="packages" class="level3">
-<h3 class="anchored" data-anchor-id="packages">Packages</h3>
-<ol type="1">
-<li><p>Het <code>jamesclient</code> package bevat onder meer de <code>james_post()</code> functie die we gebruiken om JAMES aan te roepen. Raadpleeg <a href="https://growthcharts.org/jamesclient/index.html" class="uri">https://growthcharts.org/jamesclient/index.html</a> om de documentatie te zien, en welke andere functies het <code>jamesclient</code> package bevat.</p></li>
-<li><p>Het <code>jamesdemo</code> package bevat een aantal voorbeeld datasets die we gebruiken in de oefeningen. Raadpleeg <a href="https://growthcharts.org/jamesdemodata/index.html" class="uri">https://growthcharts.org/jamesdemodata/index.html</a> voor de documentatie. De bestanden geven inzicht in hoe de JSON data eruit zien, en hoe je deze kunt gebruiken in de JAMES API calls.</p></li>
-<li><p>Het <code>bdsreader</code> package bevat een aantal functies om BDS bestanden te lezen en te converteren naar JSON. Dit is handig als je met groeidata werkt die in BDS-formaat zijn opgeslagen.</p></li>
-</ol>
+<section id="opdracht-1---james" class="level3">
+<h3 class="anchored" data-anchor-id="opdracht-1---james">Opdracht 1 - JAMES</h3>
+<p>Ga naar de <a href="https://tnochildhealthstatistics.shinyapps.io/james_tryout/">JAMES demo-app</a>. Selecteer Groep “SMOCK” en klik dan op menu item “Ontwikkeling”. Je ziet de Een D-score diagram van Laura S.</p>
+<p>Selecter daarna de groep “Pinkeltje”. Van deze kinderen zijn geen Van Wiechen metingen beschikbaar. Je ziet het menu item “Ontwikkeling” niet getoond wordt.</p>
 </section>
-<section id="james-aanroepen" class="level3">
-<h3 class="anchored" data-anchor-id="james-aanroepen">JAMES aanroepen</h3>
-<p>We gaan nu JAMES aanroepen. Dit kan op verschillende manieren. We laten hier de meest eenvoudige manier zien.</p>
-<p>Laad het <code>jamesclient</code> package, en definieer een variabele <code>host</code> met het adres van de server waarop een open versie van JAMES draait.</p>
+<section id="opdracht-2---dscore" class="level3">
+<h3 class="anchored" data-anchor-id="opdracht-2---dscore">Opdracht 2 - dscore</h3>
+<p>Het <code>dscore</code> package bevat de <code>dscore()</code> functie, die we gebruiken om de D-score en de DAZ te berekenen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jamesclient)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>host <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"JAMES_HOST"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>We illustreren eerst een methode die twee verzoeken naar de server stuurt. De onderstaande opdrachten roepen het eindpunt <code>/version/json</code> aan in de JAMES API.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>resp <span class="ot">&lt;-</span> <span class="fu">james_post</span>(<span class="at">host =</span> host, <span class="at">path =</span> <span class="st">"version/json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Type nu</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>resp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Indien alles goed is gegaan, dan krijg je de volgende output:</p>
-<pre><code>JAMES request: version/json
-List of 4
-$ package       : chr "james"
-$ packageVersion: chr "1.7.2"
-$ packageDate   : chr "2025-02-10"
-$ Rversion      : chr "4.4.1"</code></pre>
-<p>Dit geeft aan dat de server goed bereikbaar is, en dat de JAMES versie 1.7.2 is.</p>
-</section>
-<section id="james-response-format" class="level3">
-<h3 class="anchored" data-anchor-id="james-response-format">JAMES response format</h3>
-<p>We hebben de <code>/json</code> output modifier gebruikt om de JSON-representatie op te vragen van het resultaat van de R-functie <code>james::version()</code>. Het resultaat van de functie is een object van de klasse <code>james_httr</code> en bestaat uit meerdere componenten:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(resp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dscore)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(milestones)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "james_httr" "response"  </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(resp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "url"          "status_code"  "headers"      "all_headers"  "cookies"     
- [6] "content"      "date"         "times"        "request"      "handle"      
-[11] "request_path" "parsed"       "warnings"     "messages"     "session"     </code></pre>
+<pre><code>[1] 100  62</code></pre>
 </div>
 </div>
-<p>De meeste elementen zijn gedocumenteerd in het <a href="https://httr.r-lib.org/reference/response.html"><code>response</code>-object</a> van het <code>httr</code>-pakket. Zo kunnen we bijvoorbeeld de functie <code>httr::status_code(r)</code> gebruiken om de statuscode op te vragen.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>httr<span class="sc">::</span><span class="fu">status_code</span>(resp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 201</code></pre>
+<p>Bereken de D-score en de DAZ voor deze kinderen. Hoeveel kinderen zijn er?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
 </div>
 </div>
-<p>De code 201 geeft aan dat de server goed bereikbaar is.</p>
-<p>De functie <code>james_post()</code> voegt de laatste vijf elementen toe:</p>
-<ul>
-<li><code>resp$request_path</code> geeft het opgevraagde eindpunt weer, in dit geval <code>/version/json</code>;</li>
-<li><code>resp$parsed</code> is een bewerkte versie van het element <code>resp$content</code>. In geval van een foutmelding van de server staat het foutbericht hier;</li>
-<li><code>resp$warnings</code> bevat eventuele waarschuwingen die tijdens de uitvoering zijn gegenereerd;</li>
-<li><code>resp$messages</code> bevat eventuele berichten, bijvoorbeeld fouten bij het inlezen van gegevens;</li>
-<li><code>resp$session</code> (zoals <code>x0cb99a128a220a</code>) is een unieke sessiecode.</li>
-</ul>
-<p>In plaats van de <code>/json</code> output modifier kun je andere opgeven. Voor het <code>version</code> eindpunt is dat niet zo belangrijk, maar voor andere eindpunten kan dat wel. Vaak gebruikte <a href="https://www.opencpu.org/api.html#api-formats">output modifiers</a> zijn: <code>json</code>, <code>print</code>, <code>csv</code>, <code>md</code>, <code>svg</code>. Daarnaast definieert JAMES de modifiers <code>svglite</code>, <code>warnings</code>, <code>messages</code>, <code>console</code>, <code>stdout</code>, <code>info</code> en <code>parent</code>.</p>
-</section>
-<section id="opdracht-1" class="level3">
-<h3 class="anchored" data-anchor-id="opdracht-1">Opdracht 1</h3>
-<p><strong>Maak een lijst van beschikbare groeidiagrammen in JAMES. Hoeveel diagrammen biedt JAMES aan?</strong></p>
-</section>
-<section id="opsturen-van-data" class="level3">
-<h3 class="anchored" data-anchor-id="opsturen-van-data">Opsturen van data</h3>
-<p>We gaan nu een voorbeeld dataset uit het <code>jamesdemodata</code> package gebruiken. De data zijn al in het juiste JSON-formaat.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fn <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">"json"</span>, <span class="st">"examples"</span>, <span class="st">"Kevin_S.json"</span>, <span class="at">package =</span> <span class="st">"jamesdemodata"</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste</span>(<span class="fu">readLines</span>(fn, <span class="at">n =</span> <span class="dv">20</span>), <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">..."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>{
-  "Format": "3.0",
-  "organisationCode": 0,
-  "reference": "Kevin S",
-  "clientDetails": [
-    {
-      "bdsNumber": 19,
-      "value": "1"
-    },
-    {
-      "bdsNumber": 20,
-      "value": "19890214"
-    },
-    {
-      "bdsNumber": 82,
-      "value": 241
-    },
-    {
-      "bdsNumber": 91,
-      "value": "2" 
-...</code></pre>
+<div class="callout-body-container callout-body">
+<p>Gebruik <code>?dscore</code> en <code>?milestones</code> om de help te raadplegen.</p>
 </div>
 </div>
-<p>We gebruiken de <code>james_post()</code> functie om de data op te sturen naar JAMES.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>r1 <span class="ot">&lt;-</span> <span class="fu">james_post</span>(<span class="at">host =</span> host, <span class="at">path =</span> <span class="st">"data/upload/json"</span>, <span class="at">txt =</span> fn)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>httr<span class="sc">::</span><span class="fu">status_code</span>(r1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 201</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
 </div>
 </div>
-<p>Code 201 geeft aan dat de upload is geslaagd. JAMES heeft de data omgezet naar een vorm waarmee de onderliggende R packages van JAMES werken. Bijvoorbeeld, de eerste paar regels uit de meetdata van Kevin zijn:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(r1<span class="sc">$</span>parsed<span class="sc">$</span>xyz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    age xname yname zname                zref     x    y      z
-1 0.000   age   hgt hgt_z nl_2012_hgt_male_34 0.000 43.0 -1.004
-2 0.137   age   hgt hgt_z nl_2012_hgt_male_34 0.137 50.0 -0.766
-3 0.175   age   hgt hgt_z nl_2012_hgt_male_34 0.175 51.5 -0.904
-4 0.252   age   hgt hgt_z nl_2012_hgt_male_34 0.252 55.5 -0.646
-5 0.501   age   hgt hgt_z nl_2012_hgt_male_34 0.501 65.0 -0.224
-6 0.750   age   hgt hgt_z nl_2012_hgt_male_34 0.750 71.0 -0.082</code></pre>
+<div class="callout-body-container callout-body">
+<p>Voor gevorderden: Wat betekenen de kolommen <code>p</code> en <code>sem</code>? .</p>
 </div>
-</div>
-<p>De betekenis van de kolommen bespreken we later.</p>
-</section>
-<section id="opdracht-2" class="level3">
-<h3 class="anchored" data-anchor-id="opdracht-2">Opdracht 2</h3>
-<p><strong>Maak het A4 0-15 maanden groeidiagram voor Kevin (<code>chartcode = "PJAAN34"</code>). Gebruik het JAMES eindpunt <code>path = "/charts/draw/svglite"</code>, geef de data mee als <code>txt = fn</code> gebruik <code>query = list(height = 29.7/2.54, width = 21/2.54)</code> voor het juiste formaat. Bewaar het diagram als SVG file met <code>writeLines(resp$parsed, con = "kevin.svg")</code></strong></p>
-</section>
-<section id="data-converteren-naar-json" class="level3">
-<h3 class="anchored" data-anchor-id="data-converteren-naar-json">Data converteren naar JSON</h3>
-<p>JAMES accepteert alleen individuele kinddata die volgens een vastgelegd JSON-schema zijn geformatteerd. Het actuele <a href="https://github.com/growthcharts/bdsreader/blob/master/inst/schemas/bds_v3.0.json">JSON data schema 3.0</a> implementeert een subset van de Basisdataset JGZ.</p>
-<p>Het <code>jamesdemodata</code> package bevat voorbeeld datasets die al in het juiste JSON-formaat zijn opgeslagen. In de praktijk zullen we de data vaak in een ander formaat hebben, bijvoorbeeld in een data warehouse met BDS definities. Aangezien de precieze implementatie is sterk afhankelijk van de leverancier van het Elektronische Kinderdossier (EKD), is het niet mogelijk om een generieke oplossing te geven voor het converteren van BDS data naar JSON.</p>
-<p>We gebruiken het <code>bdsreader</code> package om de data te converteren naar JSON.</p>
-<p>Suppose we have the following growth data:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bdsreader)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>minidata<span class="sc">$</span>child</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 14
-  src      id dob    sex   etn   edu      ga    bw  twin  agem   smo  hgtm  hgtf
-  &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 smocc 11111 21-01… fema… NL    midd…    39  2950     0    27     0   164   179
-2 smocc 22222 18-01… male  NL    midd…    39  3730     0    24     1   164   186
-3 smocc 33333 31-01… fema… NL    midd…    40  3300     0    27     0   172   183
-# ℹ 1 more variable: name &lt;chr&gt;</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(minidata<span class="sc">$</span>time[, <span class="dv">1</span><span class="sc">:</span><span class="dv">13</span>], <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 13
-  src      id   rec  nrec dob    dom     age sex   etn      ga    bw   hgt   wgt
-  &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 smocc 11111     1    10 21-01… 21-0… 0     fema… NL       39  2950  48    2.95
-2 smocc 11111     2    10 21-01… 27-0… 0.101 fema… NL       39  2950  53.5  4.18
-3 smocc 11111     3    10 21-01… 20-0… 0.159 fema… NL       39  2950  56    5   </code></pre>
-</div>
-</div>
-<p>We kunnen de data converteren naar JSON-formaat met de functie <code>export_as_bds()</code>. Deze functie heeft een aantal argumenten:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export_as_bds</span>(<span class="at">data =</span> minidata, <span class="at">ids =</span> <span class="st">"22222"</span>, <span class="at">names =</span> <span class="st">"Thomas"</span>, <span class="at">indent =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Processing file: Thomas.json</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste</span>(<span class="fu">readLines</span>(<span class="st">"Thomas.json"</span>, <span class="at">n =</span> <span class="dv">10</span>), <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">..."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>{
-  "Format": "3.0",
-  "organisationCode": 0,
-  "reference": "Thomas S",
-  "clientDetails": [
-    {
-      "bdsNumber": 19,
-      "value": "1"
-    },
-    { 
-...</code></pre>
-</div>
-</div>
-<p>We kunnen de data nu uploaden naar JAMES, en bijvoorbeeld een groeidiagram maken.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">james_post</span>(<span class="at">host =</span> host, <span class="at">path =</span> <span class="st">"data/upload/json"</span>, <span class="at">txt =</span> <span class="st">"Thomas.json"</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>resp <span class="ot">&lt;-</span> <span class="fu">james_post</span>(<span class="at">host =</span> host, </span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">path =</span> <span class="st">"/charts/draw/svglite"</span>, </span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">txt =</span> fn,</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">chartcode =</span> <span class="st">"NJBA"</span>, <span class="at">selector =</span> <span class="st">"chartcode"</span>,</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">query =</span> <span class="fu">list</span>(<span class="at">height =</span> <span class="fl">29.7</span><span class="sc">/</span><span class="fl">2.54</span>, <span class="at">width =</span> <span class="dv">21</span><span class="sc">/</span><span class="fl">2.54</span>))</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(resp<span class="sc">$</span>parsed, <span class="at">con =</span> <span class="st">"thomas.svg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="thomas.svg" class="img-fluid figure-img"></p>
-<figcaption>Diagram 0-4 jaar voor Thomas</figcaption>
-</figure>
 </div>
 </section>
-<section id="opdracht-3" class="level3">
-<h3 class="anchored" data-anchor-id="opdracht-3">Opdracht 3</h3>
-<p><strong>Kopieer het JSON bestand van Maria.</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>fn <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">"json"</span>, <span class="st">"examples"</span>, <span class="st">"maria.json"</span>, <span class="at">package =</span> <span class="st">"jamesdemodata"</span>)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">file.copy</span>(fn, <span class="st">"maria.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>Voeg handmatig een extra lengtemeting toe aan de twee bestaande metingen, en maak het groeidiagram van lengte.</strong></p>
+<section id="opdracht-3---d-score-calculator" class="level3">
+<h3 class="anchored" data-anchor-id="opdracht-3---d-score-calculator">Opdracht 3 - D-score calculator</h3>
+<p>Exporteer de <code>milestone</code> data als CSV-bestand, en bereken de D-score met de <a href="https://tnochildhealthstatistics.shinyapps.io/dcalculator/">D-score calculator</a>. Zijn de resultaten hetzelfde?</p>
 
 
 </section>

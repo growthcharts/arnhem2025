@@ -96,10 +96,48 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./API.html"> 
 <span class="menu-text">API</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./Oefening_1.html"> 
-<span class="menu-text">Oefening 1</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-onderwerpen" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Onderwerpen</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-onderwerpen">    
+        <li>
+    <a class="dropdown-item" href="./introductie.html">
+ <span class="dropdown-text">JAMES</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./dscore.html">
+ <span class="dropdown-text">D-score</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./zscore.html">
+ <span class="dropdown-text">Z-score</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./screening.html">
+ <span class="dropdown-text">Screening</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-practica" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Practica</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-practica">    
+        <li>
+    <a class="dropdown-item" href="./practicum_1.html">
+ <span class="dropdown-text">Practicum 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./practicum_2.html">
+ <span class="dropdown-text">Practicum 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./practicum_3.html">
+ <span class="dropdown-text">Practicum 3</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -121,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#doelgroep" id="toc-doelgroep" class="nav-link active" data-scroll-target="#doelgroep">Doelgroep</a></li>
   <li><a href="#leerdoelen" id="toc-leerdoelen" class="nav-link" data-scroll-target="#leerdoelen">Leerdoelen</a></li>
   <li><a href="#ontwikkelaar" id="toc-ontwikkelaar" class="nav-link" data-scroll-target="#ontwikkelaar">Ontwikkelaar</a></li>
-  <li><a href="#workshop-begeleider" id="toc-workshop-begeleider" class="nav-link" data-scroll-target="#workshop-begeleider">Workshop begeleider</a></li>
+  <li><a href="#docent" id="toc-docent" class="nav-link" data-scroll-target="#docent">Docent</a></li>
   <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
   <li><a href="#auteursrecht-en-disclaimer" id="toc-auteursrecht-en-disclaimer" class="nav-link" data-scroll-target="#auteursrecht-en-disclaimer">Auteursrecht en Disclaimer</a></li>
   </ul>
@@ -152,6 +190,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="doelgroep" class="level2">
 <h2 class="anchored" data-anchor-id="doelgroep">Doelgroep</h2>
 <p>Deze workshop is bedoeld voor data-specialisten in de JGZ die (willen gaan) werken met het <a href="https://github.com/growthcharts/james">Joint Automatic Measurement and Evaluation (JAMES)</a> platform.</p>
+<p>Bekendheid met <code>R</code> is gewenst.</p>
 </section>
 <section id="leerdoelen" class="level2">
 <h2 class="anchored" data-anchor-id="leerdoelen">Leerdoelen</h2>
@@ -159,7 +198,8 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>kennismaken met JAMES,</li>
 <li>inzicht krijgen op de architectuur van JAMES,</li>
-<li>oefenen met aanroepen van JAMES en onderdelen daavan,</li>
+<li>aanroepen van JAMES</li>
+<li>werken met de onderliggende R-packages,</li>
 <li>kennismaken met nieuwe ontwikkelingen,</li>
 <li>leren hoe JAMES toe te passen in de praktijk.</li>
 </ul>
@@ -169,14 +209,14 @@ ul.task-list li input[type="checkbox"] {
 <p>JAMES is een open-source platform voor het uitvoeren van statistische analyses en het genereren van rapporten in de jeugdgezondheidszorg. Het platform is ontworpen om de gegevensverwerking en rapportage te automatiseren, zodat zorgprofessionals zich kunnen concentreren op hun kerntaken.</p>
 <p>JAMES is onderdeel van het <a href="https://www.tno.nl/nl/gezond/jeugd-gezondheid/i-jgz-gezondheid-bevorderen/">iJGZ systeem</a> van TNO, Afdeling Jeugdgezondheidszorg.</p>
 </section>
-<section id="workshop-begeleider" class="level2">
-<h2 class="anchored" data-anchor-id="workshop-begeleider">Workshop begeleider</h2>
+<section id="docent" class="level2">
+<h2 class="anchored" data-anchor-id="docent">Docent</h2>
 <p><a href="https://stefvanbuuren.name">Prof.&nbsp;dr. Stef van Buuren</a>, ontwikkelaar van JAMES.</p>
 </section>
 <section id="contact" class="level2">
 <h2 class="anchored" data-anchor-id="contact">Contact</h2>
-<p><strong>Licensing:</strong> <a href="mailto:olivier.blansonhenkemans@tno.nl">olivier.blansonhenkemans [at] tno.nl</a><br>
-<strong>Technical issues:</strong> <a href="mailto:stef.vanbuuren@tno.nl">stef.vanbuuren [at] tno.nl</a></p>
+<p><strong>Licenties:</strong> <a href="mailto:olivier.blansonhenkemans@tno.nl">olivier.blansonhenkemans [at] tno.nl</a><br>
+<strong>Technische zaken:</strong> <a href="mailto:stef.vanbuuren@tno.nl">stef.vanbuuren [at] tno.nl</a></p>
 </section>
 <section id="auteursrecht-en-disclaimer" class="level2">
 <h2 class="anchored" data-anchor-id="auteursrecht-en-disclaimer">Auteursrecht en Disclaimer</h2>

@@ -16,8 +16,24 @@ website:
         text: Programma
       - href: API.qmd
         text: API
-      - href: Oefening_1.qmd
-        text: Oefening 1
+      - text: "Onderwerpen"
+        menu:
+          - text: "JAMES"
+            href: introductie.qmd
+          - text: "D-score"
+            href: dscore.qmd
+          - text: "Z-score"
+            href: zscore.qmd
+          - text: "Screening"
+            href: screening.qmd
+      - text: Practica
+        menu:
+          - text: "Practicum 1"
+            href: practicum_1.qmd
+          - text: "Practicum 2"
+            href: practicum_2.qmd
+          - text: "Practicum 3"
+            href: practicum_3.qmd
 
 format:
   html:

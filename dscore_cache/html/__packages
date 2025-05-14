@@ -1,4 +1,12 @@
+base
+methods
+datasets
+utils
+grDevices
+graphics
+stats
 knitr
+officer
 ggplot2
 plyr
 tidyr
@@ -15,5 +23,4 @@ dscore
 dmetric
 gseddata
 ddata
-officer
 flextable

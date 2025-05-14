@@ -5,6 +5,9 @@ project:
     - "*.qmd"
     - "!prepare/"
 
+resources:
+  - img
+
 website:
   title: "JAMES Workshop"
   navbar:

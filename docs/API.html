@@ -147,6 +147,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./screening.html">
  <span class="dropdown-text">Screening</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./dynamisch-diagram.html">
+ <span class="dropdown-text">Dynamisch Diagram</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./tafel-van-tien.html">
+ <span class="dropdown-text">Tafel van Tien</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -477,7 +485,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>r$parsed</code> is a parsed version of the element <code>r$content</code>. Here it is a list of elements like names of the package, its date, and so on. In case of an error of the server function, we find the error message here;</li>
 <li><code>r$warnings</code> contain any warnings thrown during execution;</li>
 <li><code>r$messages</code> contain any messages, e.g.&nbsp;data reading errors;</li>
-<li><code>r$session</code> (like x05e353b79df7c2) is a unique session code.</li>
+<li><code>r$session</code> (like x0ed082a6bcd66f) is a unique session code.</li>
 </ul>
 <p>The <code>jamesclient::james_post()</code> function wraps the basis workhorse <code>httr::POST()</code> that does the actual server request. For illustration, we may obtain equivalent content by the POST function directly.</p>
 <div class="cell">
@@ -520,13 +528,13 @@ $Rversion
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> resp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>/ocpu/tmp/x0127e1aa1350a4/R/.val
-/ocpu/tmp/x0127e1aa1350a4/R/version
-/ocpu/tmp/x0127e1aa1350a4/stdout
-/ocpu/tmp/x0127e1aa1350a4/source
-/ocpu/tmp/x0127e1aa1350a4/console
-/ocpu/tmp/x0127e1aa1350a4/info
-/ocpu/tmp/x0127e1aa1350a4/files/DESCRIPTION</code></pre>
+<pre><code>/ocpu/tmp/x0f981124ecf746/R/.val
+/ocpu/tmp/x0f981124ecf746/R/version
+/ocpu/tmp/x0f981124ecf746/stdout
+/ocpu/tmp/x0f981124ecf746/source
+/ocpu/tmp/x0f981124ecf746/console
+/ocpu/tmp/x0f981124ecf746/info
+/ocpu/tmp/x0f981124ecf746/files/DESCRIPTION</code></pre>
 </div>
 </div>
 <p>The path element following <code>tmp/</code> is a unique session key. See <a href="https://www.opencpu.org/api.html" class="uri">https://www.opencpu.org/api.html</a> for the interpretation of the OpenCPU API.</p>
@@ -661,7 +669,7 @@ $xyz
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>(session <span class="ot">&lt;-</span> r1<span class="sc">$</span>session)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "x0023f74df46100"</code></pre>
+<pre><code>[1] "x081872187cbaa7"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>resp <span class="ot">&lt;-</span> <span class="fu">james_get</span>(<span class="at">host =</span> host, <span class="at">path =</span> <span class="fu">file.path</span>(session, <span class="st">"md"</span>))</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(resp<span class="sc">$</span>parsed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

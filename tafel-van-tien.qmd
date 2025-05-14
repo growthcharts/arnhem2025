@@ -1,0 +1,42 @@
+---
+title: "Tafel van Tien"
+---
+
+## Individuele risicomodellen {.smaller}
+
+| Uitkomst | Leeftijd bij Voorspelling | Leeftijd bij Uitkomst | Steekproefgrootte (N) | Prevalentie (%) | AUC |
+|-------------------|----------------------|----------------------|-----------------------|-----------------|-----|
+| Overgewicht | 4 maanden | 4 jaar | 18.403 | 9,2 | 0,78 |
+| Taalachterstand | 2 jaar | 4 jaar | 9.148 | 13,2 | 0,77 |
+| Vroeggeboorte | GA 16-20 weken | Geboorte \< 32 weken | 1.564.456 | 0,8 | 0,73 |
+
+## Beoordelen en bijwerken van individuele informatie {.smaller}
+
+- Zorgprofessional moet in staat zijn om kindgegevens te beoordelen en bij te werken
+- Controleer op juistheid van gegevens
+- Toont de impact van een wijziging in de kindgegevens op de risicoschatting
+- Professionals worden aangemoedigd om ontbrekende velden aan te vullen
+- Beheer van ontbrekende kindgegevens is cruciaal
+
+### Tafel van Tien
+
+- Storyboard benadering om risicoschattingen te communiceren
+- Acht panels
+- Adaptieve begeleidende tekst
+- Opbouw naar:
+  + absolute risicoschatting van het kind
+  + rang van dat risico
+  + onzekerheid rondom de risicoschatting
+
+### Tafel van Tien: Live demo
+
+[Klik hier om de interactieve demo te starten](https://tnochildhealthstatistics.shinyapps.io/tab10/)
+
+De app opent in een nieuw tabblad zodat je live kunt meekijken. 
+
+::: {.callout-warning}
+- De app is nog in ontwikkeling.
+- Bij de eerste keer openen van een kind crasht de app, de tweede keer gaat het goed. 
+- Dit is een bekend probleem dat we nog moeten oplossen.
+:::
+

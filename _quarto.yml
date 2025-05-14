@@ -24,6 +24,10 @@ website:
             href: zscore.qmd
           - text: "Screening"
             href: screening.qmd
+          - text: "Dynamisch Diagram"
+            href: dynamisch-diagram.qmd
+          - text: "Tafel van Tien"
+            href: tafel-van-tien.qmd
       - text: Practica
         menu:
           - text: "Practicum 1"

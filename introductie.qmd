@@ -2,3 +2,32 @@
 title: "Introductie"
 ---
 
+## JAMES: Maak gebruik makkelijk
+
+- JAMES [Joint Automatic Measurement and Evaluation System](https://james.groeidiagrammen.nl)
+- Ontwikkeld en onderhouden door TNO Child Health
+- Open-source RESTful API
+- Tools om de gezondheid van kinderen te monitoren, risico’s te identificeren en passende zorg te ondersteunen
+
+### JAMES: Kenmerken
+
+1. Toegang tot hoogwaardige groeidiagrammen die worden gebruikt door de Nederlandse jeugdgezondheidszorg
+2. Gegevensuitwisseling gecodeerd volgens de [Basisdataset JGZ 4.0.1](https://www.ncj.nl/onderwerp/digitaal-dossier-jgz/bds-jgz-versiebeheer/).
+3. Screening op afwijkingen in lengte, gewicht en hoofdomtrek
+4. Zet Van Wiechen scores om naar D-score
+5. Voorspelling toekomstige groei en ontwikkeling
+
+### JAMES Live demo
+
+<https://tnochildhealthstatistics.shinyapps.io/james_tryout/>
+
+## Samenvatting
+
+- Drie modellen voor individuele risicoschattingen
+- Paneel voor gegevensbeoordeling van kindinformatie
+- **Tafel van Tien** voor het communiceren van risico's
+- **JAMES** maakt het gemakkelijk te gebruiken
+
+## Referenties
+
+

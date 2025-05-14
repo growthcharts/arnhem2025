@@ -1,0 +1,438 @@
+---
+title: " " 
+bibliography: references.bib
+format: 
+  revealjs:
+    self-contained: true
+    slide-number: c/t
+    highlight-style: github
+    width: 1600
+    height: 900
+    logo: "img/tno-innovation-for-life.svg"
+    footer: "Dynamische Diagram"
+    echo: false
+    multiplex: true
+    code-link: true
+    code-line-numbers: false
+    fig-cap-location: top
+    title-slide-attributes:
+      data-background-image: img/Afbeelding1.jpg
+      data-background-position: "top 10px"
+      data-background-opacity: "0.7"
+    center-title-slide: false
+    title-block-banner: true
+    df-print: paged
+---
+
+##  Dynamisch Diagram {background-image="img/Afbeelding1.jpg" background-size="100%"}
+
+## Vier vragen bij groei en ontwikkeling
+
+<br> 
+
+::: {.incremental}
+
+### Evalueren
+
+1. Waar staat het kind t.o.v. leeftijdgenoten?
+2. Past de recente groei bij de eerdere metingen van het kind?
+
+<br>
+
+### Voorspellen
+
+3. Hoe zal het kind in de toekomst groeien?
+4. Geeft deze verwachting aanleiding tot acties nu?
+
+:::
+
+## 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| label: spaghetti-cm
+#| echo: false
+
+library(dplyr)
+library(plotly)
+library(donorloader)
+library(bdsreader)
+set.seed(seed = 2)
+n <- 100
+ids <- load_data(dnr = "smocc", element = "time") |> 
+  pull(id) |> 
+  sample(size = n) |> 
+  sort()
+df <- load_data(dnr = "smocc", element = "time") |> 
+  select(src, id, rec, age, sex, bw, ga, hgt, hgt_z) |> 
+  filter(id %in% ids)
+shared <- df |> 
+  highlight_key(~ id)
+base <- plot_ly(shared, 
+                color = I("#001571"),
+                width = 650, 
+                height = 650) |> 
+  group_by(id)
+cm <- base |> 
+  config(displayModeBar = FALSE) |> 
+  layout(
+    xaxis = list(
+      range = list(-0.02, 2.25),
+      rangemode = "tozero",
+      dtick = 0.25,
+      tick0 = 0,
+      ticklabelstep = 0.25,
+      title = "Leeftijd in jaren",
+      zeroline = FALSE),
+    yaxis = list(
+      range = list(40, 100), 
+      title = "Lengte (cm)"
+    )
+  ) |> 
+  group_by(id) |> 
+  add_lines(x = ~ age, y = ~ hgt)
+cm
+
+# 54088 Kunt niet zien dat start meer dan 1 SD afneemt
+# 34077 Prematuur
+# 14028 Wanneer is moment van ingrijpen?
+# 53094 Toename van 1 SD slecht te zien
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| label: spaghetti-sds
+#| echo: false
+base <- plot_ly(shared, 
+                color = I("#001571"),
+                width = 650, 
+                height = 650) |> 
+  group_by(id)
+sds <- base |> 
+  config(displayModeBar = FALSE) |> 
+  layout(
+    xaxis = list(
+      range = list(-0.02, 2.25),
+      rangemode = "tozero",
+      dtick = 0.25,
+      tick0 = 0,
+      ticklabelstep = 0.25,
+      title = "Leeftijd in jaren",
+      zeroline = FALSE),
+    yaxis = list(
+      range = list(-4, 4), 
+      title = "Lengte (SDS)"
+    )
+  ) |> 
+  group_by(id) |> 
+  add_lines(x = ~ age, y = ~ hgt_z)
+sds
+```
+
+:::
+
+::::
+
+## Ontwerp - nieuwe elementen
+
+1. **Horizontaal diagram**
+2. **Amplitude**: gerealiseerde conditionele SDS gains
+3. **Vlag**: persoonlijke voorspelling
+
+## 
+
+![](img/child_4_1.png){width=100%}
+
+## 
+
+![](img/child_4_2.png){width=100%}
+
+## 
+
+![](img/child_4_3.png){width=100%}
+
+## 
+
+![](img/child_4_4.png){width=100%}
+
+## 
+
+![](img/child_4_5.png){width=100%}
+
+## 
+
+![](img/child_4_6.png){width=100%}
+
+## 
+
+![](img/child_4_7.png){width=100%}
+
+## 
+
+![](img/child_4_8.png){width=100%}
+
+## 
+
+![](img/child_4_9.png){width=100%}
+
+## 
+
+![](img/child_4_10.png){width=100%}
+
+
+```{r}
+#| label: multipletraces
+#| background-color: "grey"
+source("R/chart_helpers.R")
+xaxis <- list(
+  dtick = 0.25,
+  range = list(-1/12, 31/12),
+  showgrid = TRUE,
+  showline = FALSE,
+  showticklabels = TRUE, 
+  tick0 = -9/12,
+  ticktext = as.character(seq(-9, 48, 3)),
+  tickvals = seq(-9, 48, 3)/12,
+  title = "Leeftijd (maanden)",
+  zeroline = FALSE)
+yaxis <- list(
+  dtick = 1,
+  range = list(-4, 4),
+  tick0 = 0,
+  ticklabelstep = 2,
+  title = "Standard Deviation Score (SDS)",
+  zeroline = TRUE,
+  zerolinecolor = "#00AB6688",
+  zerolinewidth = 2)
+yname_colors <- c("#FF0000BB", "#0072B2", "#56B4E9", "#763A7E", "#33B882", "#E69F00")
+# plotly config
+config_list <- list(
+  displayModeBar = FALSE,
+  displaylogo = FALSE)
+
+# target data
+fn <- system.file("extdata", "bds_v2.0", "smocc", "Laura_S.json", package = "jamesdemodata")
+target <- bdsreader::read_bds(fn)
+data <- target[["xyz"]]
+
+# add labels for legends and hovertext
+data <- add_labels(data)
+
+# create plot
+fig <- plot_ly(width = 1300, height = 800) %>%
+  config(displayModeBar = FALSE, displaylogo = FALSE) %>%
+  layout(paper_bgcolor = "#F7F7F7F7",
+         plot_bgcolor = "white",
+         xaxis = xaxis,
+         yaxis = yaxis,
+         shapes = list(
+           fillcolor = "#00AB6688",
+           line = list(width = 0),
+           opacity = 0.1,
+           type = "rect",
+           x0 = 0, x1 = 30,
+           y0 = -2, y1 = 2
+         ),
+         legend = list(
+           bgcolor = "transparent",
+           x = 0.995,
+           y = 1,
+           xanchor = "right"
+         )) |>
+  add_trace(
+    color = ~yname_label,
+    colors = yname_colors,
+    data = data,
+    hoverinfo = 'text',
+    line = list(width = 2.5),
+    marker = list(size = 10),
+    mode = "lines+markers",
+    text = ~paste0('</br>', yname,
+                   '</br>', round(y, digits = 1), ' ', yname_unit,
+                   ' (', format(z, nsmall = 2),
+                   '; P', pf, ')'),
+    type = "scatter",
+    x = ~age,
+    y = ~z,
+    xaxis = "x"
+  )
+
+# define traces visible at startup
+visible <- list(hgt = "legendonly", wgt = "legendonly", wfh = FALSE,
+                bmi = FALSE, hdc = "legendonly", dsc = "legendonly")
+fig <- set_trace_visibility(fig, visible)
+```
+
+
+## Signalering aan de hand van richtlijnen {background-color="#F7F7F7F7"  visibility="hidden"}
+
+```{r}
+library(donorloader)
+library(growthscreener)
+
+all_ids <- load_data(dnr = "smocc")$child$id
+set.seed(1)
+n <- 50
+ids <- sample(all_ids, n)
+
+codes <- vector("list", length(ids))
+names(codes) <- ids
+for (i in seq_along(ids)) {
+  js <- export_as_bds_from_donorloader(dnr = "smocc", ids = ids[i], path = "tmp")
+  tgt <- bdsreader::read_bds(paste0("tmp/", ids[i], ".json"))
+  codes[[i]] <- screen_curves_tgt(tgt)
+}
+# codes
+# 15171, 14009, 11025, 34102
+# gewicht (2045): 13035, 10046, 53165
+# lengte (1077): 51132, 15214
+```
+
+```{r}
+selected <- c(15171, 14009, 11025, 34102)
+target <- bdsreader::read_bds(paste0("tmp/", selected[1], ".json"))
+data <- target[["xyz"]]
+data <- add_labels(data)
+
+# create plot
+fig <- plot_ly(width = 1300, height = 800) %>%
+  config(displayModeBar = FALSE, displaylogo = FALSE) %>%
+  layout(paper_bgcolor = "#F7F7F7F7",
+         plot_bgcolor = "white",
+         xaxis = xaxis,
+         yaxis = yaxis,
+         shapes = list(
+           fillcolor = "#00AB6688",
+           line = list(width = 0),
+           opacity = 0.1,
+           type = "rect",
+           x0 = 0, x1 = 30,
+           y0 = -2, y1 = 2
+         ),
+         legend = list(
+           bgcolor = "transparent",
+           x = 0.995,
+           y = 1,
+           xanchor = "right"
+         )) |>
+  add_trace(
+    color = ~yname_label,
+    colors = yname_colors,
+    data = data,
+    hoverinfo = 'text',
+    line = list(width = 2.5),
+    marker = list(size = 10),
+    mode = "lines+markers",
+    text = ~paste0('</br>', yname,
+                   '</br>', round(y, digits = 1), ' ', yname_unit,
+                   ' (', format(z, nsmall = 2),
+                   '; P', pf, ')'),
+    type = "scatter",
+    x = ~age,
+    y = ~z,
+    xaxis = "x"
+  )
+
+# define traces visible at startup
+visible <- list(hgt = "legendonly", wgt = "legendonly", wfh = FALSE,
+                bmi = FALSE, hdc = "legendonly", dsc = "legendonly")
+fig <- set_trace_visibility(fig, visible)
+
+fig
+```
+
+## Signalering aan de hand van richtlijnen {background-color="#F7F7F7F7"}
+
+```{r}
+selected <- c(15171, 14009, 11025, 34102)
+target <- bdsreader::read_bds(paste0("tmp/", selected[1], ".json"))
+data <- target[["xyz"]]
+data <- add_labels(data)
+data$hit <- 0
+data[2, "hit"] <- 1
+data[14, "hit"] <- 2
+
+# create plot
+fig <- plot_ly(width = 1300, height = 800) %>%
+  config(displayModeBar = FALSE, displaylogo = FALSE) %>%
+  layout(paper_bgcolor = "#F7F7F7F7",
+         plot_bgcolor = "white",
+         xaxis = xaxis,
+         yaxis = yaxis,
+         shapes = list(
+           fillcolor = "#00AB6688",
+           line = list(width = 0),
+           opacity = 0.1,
+           type = "rect",
+           x0 = 0, x1 = 30,
+           y0 = -2, y1 = 2
+         ),
+         legend = list(
+           bgcolor = "transparent",
+           x = 0.995,
+           y = 1,
+           xanchor = "right"
+         )) |>
+  add_trace(
+    color = ~yname_label,
+    colors = yname_colors,
+    data = data,
+    hoverinfo = 'text',
+    line = list(width = 2.5),
+    marker = list(size = 10),
+    mode = "lines+markers",
+    text = ~paste0('</br>', yname,
+                   '</br>', round(y, digits = 1), ' ', yname_unit,
+                   ' (', format(z, nsmall = 2),
+                   '; P', pf, ')'),
+    type = "scatter",
+    x = ~age,
+    y = ~z,
+    xaxis = "x"
+  ) |> 
+  add_markers(
+    color = ~yname_label,
+    colors = yname_colors,
+    data = data[data$hit == 1, ],
+    symbol = I(24),
+    size = I(1000),
+    stroke = I("red"),
+    span = I(1),
+    text = ~paste0('</br>Lengte toename</br>1077'),
+    x = ~age,
+    y = ~z,
+  ) |> 
+  add_markers(
+    color = ~yname_label,
+    colors = yname_colors,
+    data = data[data$hit == 2, ],
+    symbol = I(25),
+    stroke = I("blue"),
+    span = I(1),
+    text = ~paste0('</br>Gewicht afname</br>2075'),
+    size = I(1000),
+    x = ~age,
+    y = ~z,
+  )
+
+# define traces visible at startup
+visible <- list(hgt = "legendonly", wgt = "legendonly", wfh = FALSE,
+                bmi = FALSE, hdc = "legendonly", dsc = "legendonly")
+fig <- set_trace_visibility(fig, visible)
+
+fig
+```
+
+## Dynamisch diagram
+
+- Horizontaal diagram + Amplitude + Vlag
+- Universeel
+- Beoordelen van groei meer als exacte wetenschap
+- Signalering m.b.v. JGZ-richtlijnen
+- Flexibele contactmomenten

@@ -14,8 +14,11 @@ _site/
 
 # Generated files to exclude
 .host
-*.svg
 *.json
+*.svg
+
+# Allow SVG files inside docs/img/
+!docs/img/*.svg
 
 # Other stuff
 prepare/

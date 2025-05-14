@@ -1,0 +1,40 @@
+# Workshop JAMES Arnhem 2025
+
+## Doelgroep
+
+Deze workshop is bedoeld voor data-specialisten in de JGZ die (willen gaan) werken met het [Joint Automatic Measurement and Evaluation (JAMES)](https://github.com/growthcharts/james) platform. 
+
+Bekendheid met `R` is gewenst.
+
+## Leerdoelen
+
+Het doel van deze workshop is 
+
+- kennismaken met JAMES,
+- inzicht krijgen op de architectuur van JAMES,
+- aanroepen van JAMES 
+- werken met de onderliggende R-packages,
+- kennismaken met nieuwe ontwikkelingen,
+- leren hoe JAMES toe te passen in de praktijk.
+
+## Ontwikkelaar
+
+JAMES is een open-source platform voor het uitvoeren van statistische analyses en het genereren van rapporten in de jeugdgezondheidszorg. Het platform is ontworpen om de gegevensverwerking en rapportage te automatiseren, zodat zorgprofessionals zich kunnen concentreren op hun kerntaken.
+
+JAMES is onderdeel van het [iJGZ systeem](https://www.tno.nl/nl/gezond/jeugd-gezondheid/i-jgz-gezondheid-bevorderen/) van TNO, Afdeling Jeugdgezondheidszorg.
+
+## Docent
+
+[Prof. dr. Stef van Buuren](https://stefvanbuuren.name), ontwikkelaar van JAMES.
+
+## Contact
+
+**Licenties:** [olivier.blansonhenkemans \[at\] tno.nl](mailto:olivier.blansonhenkemans@tno.nl)  
+**Technische zaken:** [stef.vanbuuren \[at\] tno.nl](mailto:stef.vanbuuren@tno.nl)
+
+## Auteursrecht en Disclaimer
+
+© 2025 TNO – Alle rechten voorbehouden.
+
+Deze documentatie wordt uitsluitend verstrekt voor informatieve doeleinden en kan zonder voorafgaande kennisgeving worden bijgewerkt. Het gebruik van het JAMES-systeem en de bijbehorende componenten is onderhevig aan de toepasselijke licentievoorwaarden.
+

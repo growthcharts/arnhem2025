@@ -14,8 +14,6 @@ website:
     left:
       - href: program.qmd
         text: Programma
-      - href: API.qmd
-        text: API
       - text: "Onderwerpen"
         menu:
           - text: "JAMES"
@@ -34,6 +32,8 @@ website:
             href: practicum_2.qmd
           - text: "Practicum 3"
             href: practicum_3.qmd
+      - href: API.qmd
+        text: API
 
 format:
   html:

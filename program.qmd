@@ -7,13 +7,15 @@ title: "Programma"
 | Tijd   | Onderdeel                         |
 |--------|-----------------------------------|
 | 10:00  | Introductie JAMES/iJGZ            |
-| 10:30  | **Oefening 1** JAMES              |
+| 10:30  | **Practicum 1** JAMES             |
 | 11:00  | PAUZE                             |
 | 11:10  | D-score                           |
-| 11:45  | **Oefening** `dscore`             |
+| 11:45  | **Practicum 2** `dscore`          |
 | 12:15  | LUNCH                             |
 | 13:45  | SDS, screening                    |
-| 14:15  | **Oefening** `centile`, `growthscreener` |
-| 15:00  | Nieuwe ontwikkelingen `tab10`, vlak diagrammen  |
-| 15:30  | Vragenuurtje               |
+| 14:15  | **Practicum 3** `centile`, `growthscreener` |
+| 15:00  | Nieuwe ontwikkelingen `tab10`, vlakke diagram  |
+| 15:30  | Vragenuurtje                      |
 | 16:00  | SLUITING                          |
+
+:::

@@ -1,0 +1,19 @@
+---
+title: "Programma"
+---
+
+::: {.table}
+
+| Tijd   | Onderdeel                         |
+|--------|-----------------------------------|
+| 10:00  | Introductie JAMES/iJGZ            |
+| 10:30  | **Oefening 1** JAMES              |
+| 11:00  | PAUZE                             |
+| 11:10  | D-score                           |
+| 11:45  | **Oefening** `dscore`             |
+| 12:15  | LUNCH                             |
+| 13:45  | SDS, screening                    |
+| 14:15  | **Oefening** `centile`, `growthscreener` |
+| 15:00  | Nieuwe ontwikkelingen `tab10`, vlak diagrammen  |
+| 15:30  | Vragenuurtje               |
+| 16:00  | SLUITING                          |

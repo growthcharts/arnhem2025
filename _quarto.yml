@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "!prepare/"
+
+website:
+  title: "JAMES Workshop"
+  navbar:
+    left:
+      - href: program.qmd
+        text: Programma
+      - href: API.qmd
+        text: API
+      - href: Oefening_1.qmd
+        text: Oefening 1
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+margin-header: |
+  <img src="img/tno-logo.svg" alt="TNO logo" style="height: 50px;" />

@@ -1,0 +1,195 @@
+---
+title: "Oefening 1"
+---
+
+### Doel
+
+Deze oefening is bedoeld om je eerste JAMES API call te maken. 
+
+- Je leert het JAMES versienummber en een groeidiagram te maken door the online JAMES server opdrachten te geven. 
+- Je leert ook hoe je groeidata in het juiste JSON format kunt gieten.
+
+
+### Voorbereiding
+
+Start R, en controleer dat je minimaal R versie 4.1.0 hebt geïnstalleerd. Installeer daarna de volgende packages:
+
+```{r eval=FALSE}
+install.packages(c("remotes", "httr", "jsonlite", "dscore"))
+```
+
+Installeer nu een aantal hulp-packages van JAMES. Dit kan enige tijd duren, omdat de packages van GitHub worden gedownload en gecompileerd.
+
+```{r eval=FALSE}
+remotes::install_github("growthcharts/jamesclient")
+remotes::install_github("growthcharts/jamesdemodata")
+remotes::install_github("growthcharts/bdsreader")
+```
+
+### Packages
+
+1. Het `jamesclient` package bevat onder meer de `james_post()` functie die we gebruiken om JAMES aan te roepen. Raadpleeg <https://growthcharts.org/jamesclient/index.html> om de documentatie te zien, en welke andere functies het `jamesclient` package bevat.
+
+2. Het `jamesdemo` package bevat een aantal voorbeeld datasets die we gebruiken in de oefeningen. Raadpleeg <https://growthcharts.org/jamesdemodata/index.html> voor de documentatie. De bestanden geven inzicht in hoe de JSON data eruit zien, en hoe je deze kunt gebruiken in de JAMES API calls.
+
+3. Het `bdsreader` package bevat een aantal functies om BDS bestanden te lezen en te converteren naar JSON. Dit is handig als je met groeidata werkt die in BDS-formaat zijn opgeslagen.
+
+### JAMES aanroepen
+
+We gaan nu JAMES aanroepen. Dit kan op verschillende manieren. We laten hier de meest eenvoudige manier zien.
+
+Laad het `jamesclient` package, en definieer een variabele `host` met het adres van de server waarop een open versie van JAMES draait. 
+
+```{r load}
+library(jamesclient)
+host <- Sys.getenv("JAMES_HOST")
+```
+
+We illustreren eerst een methode die twee verzoeken naar de server stuurt. De onderstaande opdrachten roepen het eindpunt `/version/json` aan in de JAMES API.
+
+```{r versiontwostep, eval=TRUE}
+resp <- james_post(host = host, path = "version/json")
+```
+
+Type nu
+
+```{r eval=FALSE}
+resp
+```
+
+Indien alles goed is gegaan, dan krijg je de volgende output: 
+
+```
+JAMES request: version/json
+List of 4
+$ package       : chr "james"
+$ packageVersion: chr "1.7.2"
+$ packageDate   : chr "2025-02-10"
+$ Rversion      : chr "4.4.1"
+```
+
+Dit geeft aan dat de server goed bereikbaar is, en dat de JAMES versie 1.7.2 is.
+
+### JAMES response format
+
+We hebben de `/json` output modifier gebruikt om de JSON-representatie op te vragen van het resultaat van de R-functie `james::version()`. Het resultaat van de functie is een object van de klasse `james_httr` en bestaat uit meerdere componenten:
+
+```{r}
+class(resp)
+names(resp)
+```
+
+De meeste elementen zijn gedocumenteerd in het [`response`-object](https://httr.r-lib.org/reference/response.html) van het `httr`-pakket. Zo kunnen we bijvoorbeeld de functie `httr::status_code(r)` gebruiken om de statuscode op te vragen.
+
+```{r}
+httr::status_code(resp)
+```
+
+De code 201 geeft aan dat de server goed bereikbaar is.
+
+De functie `james_post()` voegt de laatste vijf elementen toe:
+
+- `resp$request_path` geeft het opgevraagde eindpunt weer, in dit geval `/version/json`;
+- `resp$parsed` is een bewerkte versie van het element `resp$content`. In geval van een foutmelding van de server staat het foutbericht hier;
+- `resp$warnings` bevat eventuele waarschuwingen die tijdens de uitvoering zijn gegenereerd;
+- `resp$messages` bevat eventuele berichten, bijvoorbeeld fouten bij het inlezen van gegevens;
+- `resp$session` (zoals `x0cb99a128a220a`) is een unieke sessiecode.
+
+In plaats van de `/json` output modifier kun je andere opgeven. Voor het `version` eindpunt is dat niet zo belangrijk, maar voor andere eindpunten kan dat wel. Vaak gebruikte [output modifiers](https://www.opencpu.org/api.html#api-formats) zijn: `json`, `print`, `csv`, `md`, `svg`. Daarnaast definieert JAMES de modifiers `svglite`, `warnings`, `messages`, `console`, `stdout`, `info` en `parent`. 
+
+### Opdracht 1
+
+**Maak een lijst van beschikbare groeidiagrammen in JAMES. Hoeveel diagrammen biedt JAMES aan?**
+
+```{r include=FALSE}
+r <- james_post(host = host, path = "charts/list/json")
+charts <- r$parsed
+nrow(charts)
+```
+
+### Opsturen van data
+
+We gaan nu een voorbeeld dataset uit het `jamesdemodata` package gebruiken. De data zijn al in het juiste JSON-formaat. 
+
+```{r}
+fn <- system.file("json", "examples", "Kevin_S.json", package = "jamesdemodata")
+cat(paste(readLines(fn, n = 20), collapse = "\n"), "\n...")
+```
+
+We gebruiken de `james_post()` functie om de data op te sturen naar JAMES.
+
+```{r}
+r1 <- james_post(host = host, path = "data/upload/json", txt = fn)
+httr::status_code(r1)
+```
+
+Code 201 geeft aan dat de upload is geslaagd. JAMES heeft de data omgezet naar een vorm waarmee de onderliggende R packages van JAMES werken. Bijvoorbeeld, de eerste paar regels uit de meetdata van Kevin zijn:
+
+```{r}
+head(r1$parsed$xyz)
+```
+
+De betekenis van de kolommen bespreken we later. 
+
+### Opdracht 2
+
+**Maak het A4 0-15 maanden groeidiagram voor Kevin (`chartcode = "PJAAN34"`). Gebruik het JAMES eindpunt `path = "/charts/draw/svglite"`, geef de data mee als `txt = fn` gebruik `query = list(height = 29.7/2.54, width = 21/2.54)` voor het juiste formaat. Bewaar het diagram als SVG file met `writeLines(resp$parsed, con = "kevin.svg")`**
+
+```{r include=FALSE}
+resp <- james_post(host = host, 
+                   path = "/charts/draw/svglite", 
+                   txt = fn,
+                   chartcode = "PJAAN34", selector = "chartcode",
+                   query = list(height = 29.7/2.54, width = 21/2.54))
+if (!dir.exists("img")) dir.create("img", recursive = TRUE)
+writeLines(resp$parsed, con = "img/kevin.svg")
+```
+
+### Data converteren naar JSON
+
+JAMES accepteert alleen individuele kinddata die volgens een vastgelegd JSON-schema zijn geformatteerd. Het actuele [JSON data schema 3.0](https://github.com/growthcharts/bdsreader/blob/master/inst/schemas/bds_v3.0.json) implementeert een subset van de Basisdataset JGZ. 
+
+Het `jamesdemodata` package bevat voorbeeld datasets die al in het juiste JSON-formaat zijn opgeslagen. In de praktijk zullen we de data vaak in een ander formaat hebben, bijvoorbeeld in een data warehouse met BDS definities. Aangezien de precieze implementatie is sterk afhankelijk van de leverancier van het Elektronische Kinderdossier (EKD), is het niet mogelijk om een generieke oplossing te geven voor het converteren van BDS data naar JSON.
+
+We gebruiken het `bdsreader` package om de data te converteren naar JSON. 
+
+Suppose we have the following growth data:
+
+```{r}
+library(bdsreader)
+minidata$child
+head(minidata$time[, 1:13], 3)
+```
+
+We kunnen de data converteren naar JSON-formaat met de functie `export_as_bds()`. Deze functie heeft een aantal argumenten:
+
+```{r}
+export_as_bds(data = minidata, ids = "22222", names = "Thomas", indent = 2)
+cat(paste(readLines("Thomas.json", n = 10), collapse = "\n"), "\n...")
+```
+
+We kunnen de data nu uploaden naar JAMES, en bijvoorbeeld een groeidiagram maken.
+
+```{r}
+r <- james_post(host = host, path = "data/upload/json", txt = "Thomas.json")
+resp <- james_post(host = host, 
+                   path = "/charts/draw/svglite", 
+                   txt = fn,
+                   chartcode = "NJBA", selector = "chartcode",
+                   query = list(height = 29.7/2.54, width = 21/2.54))
+writeLines(resp$parsed, con = "img/thomas.svg")
+```
+
+![Diagram 0-4 jaar voor Thomas](img/thomas.svg)
+
+### Opdracht 3
+
+**Kopieer het JSON bestand van Maria.**
+
+```{r eval=FALSE}
+fn <- system.file("json", "examples", "maria.json", package = "jamesdemodata")
+file.copy(fn, "maria.json")
+```
+
+**Voeg handmatig een extra lengtemeting toe aan de twee bestaande metingen, en maak het groeidiagram van lengte.**
+

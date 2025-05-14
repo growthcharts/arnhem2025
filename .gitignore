@@ -1,0 +1,22 @@
+# RStudio
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Quarto
+/.quarto/
+_freeze/
+_site/
+
+# Mac
+.DS_Store
+
+# Generated files to exclude
+.host
+*.svg
+*.json
+
+# Other stuff
+prepare/
+restjes/

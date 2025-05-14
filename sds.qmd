@@ -1,0 +1,223 @@
+---
+title: " " 
+bibliography: references.bib
+format: 
+  revealjs:
+    self-contained: true
+    slide-number: c/t
+    highlight-style: github
+    width: 1600
+    height: 900
+    logo: "img/tno-innovation-for-life.svg"
+    footer: "SDS"
+    echo: false
+    multiplex: true
+    code-link: true
+    code-line-numbers: false
+    fig-cap-location: top
+    title-slide-attributes:
+      data-background-image: img/Afbeelding1.jpg
+      data-background-position: "top 10px"
+      data-background-opacity: "0.7"
+    center-title-slide: false
+    title-block-banner: true
+    df-print: paged
+---
+
+## Standard Deviatie Score (SDS)
+
+![Beschrijving van de figuur](img/AHB.png)
+
+## Vier vragen bij groei en ontwikkeling
+
+<br> 
+
+::: {.incremental}
+
+### Evalueren
+
+1. Waar staat het kind t.o.v. leeftijdgenoten?
+2. Past de recente groei bij de eerdere metingen van het kind?
+
+<br>
+
+### Voorspellen
+
+3. Hoe zal het kind in de toekomst groeien?
+4. Geeft deze verwachting aanleiding tot acties nu?
+
+:::
+
+## 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| label: spaghetti-cm
+#| echo: false
+
+library(dplyr)
+library(plotly)
+library(donorloader)
+library(bdsreader)
+set.seed(seed = 2)
+n <- 100
+ids <- load_data(dnr = "smocc", element = "time") |> 
+  pull(id) |> 
+  sample(size = n) |> 
+  sort()
+df <- load_data(dnr = "smocc", element = "time") |> 
+  select(src, id, rec, age, sex, bw, ga, hgt, hgt_z) |> 
+  filter(id %in% ids)
+shared <- df |> 
+  highlight_key(~ id)
+base <- plot_ly(shared, 
+                color = I("#001571"),
+                width = 650, 
+                height = 650) |> 
+  group_by(id)
+cm <- base |> 
+  config(displayModeBar = FALSE) |> 
+  layout(
+    xaxis = list(
+      range = list(-0.02, 2.25),
+      rangemode = "tozero",
+      dtick = 0.25,
+      tick0 = 0,
+      ticklabelstep = 0.25,
+      title = "Leeftijd in jaren",
+      zeroline = FALSE),
+    yaxis = list(
+      range = list(40, 100), 
+      title = "Lengte (cm)"
+    )
+  ) |> 
+  group_by(id) |> 
+  add_lines(x = ~ age, y = ~ hgt)
+cm
+
+# 54088 Kunt niet zien dat start meer dan 1 SD afneemt
+# 34077 Prematuur
+# 14028 Wanneer is moment van ingrijpen?
+# 53094 Toename van 1 SD slecht te zien
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| label: spaghetti-sds
+#| echo: false
+base <- plot_ly(shared, 
+                color = I("#001571"),
+                width = 650, 
+                height = 650) |> 
+  group_by(id)
+sds <- base |> 
+  config(displayModeBar = FALSE) |> 
+  layout(
+    xaxis = list(
+      range = list(-0.02, 2.25),
+      rangemode = "tozero",
+      dtick = 0.25,
+      tick0 = 0,
+      ticklabelstep = 0.25,
+      title = "Leeftijd in jaren",
+      zeroline = FALSE),
+    yaxis = list(
+      range = list(-4, 4), 
+      title = "Lengte (SDS)"
+    )
+  ) |> 
+  group_by(id) |> 
+  add_lines(x = ~ age, y = ~ hgt_z)
+sds
+```
+
+:::
+
+::::
+
+## {background-image="img/afbuiging1.png" background-size="100%"}
+
+## {background-image="img/afbuiging2.png" background-size="100%"}
+
+## {background-image="img/afbuiging3.png" background-size="100%"}
+
+## Twee representaties van groei
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+![](img/Nienke_default.png){width=100%}
+
+:::
+
+::: {.column width="50%"}
+
+![](img/Nienke_sds.png){width=100%}
+
+:::
+
+:::
+
+
+## Vlakke diagram
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+#### Voordelen
+
+- Sluit beter aan bij menselijke perceptie
+- Betere vlakverdeling, meer detail
+- Benadrukt hoe kind afwijkt van peers
+- Meerdere uitkomsten tegelijk
+- Eén diagram 0 – 21 jaar
+- Betere statistische eigenschappen
+- Sneller te beoordelen
+
+#### Nadelen
+
+- Onbekend, niet beschikbaar
+- Moeilijker met hand in te tekenen
+- (Iets) lastiger uit te leggen
+:::
+
+::: {.column width="50%"}
+
+![](img/Nienke_sds2.png){width=100%}
+
+:::
+
+:::
+
+## SDS uitrekenen en visualiseren
+
+| Onderdeel    | Beschrijving                                 | Package          |
+|--------------|----------------------------------------------|------------------|
+| Referentie   | Normal, LMS, BCT, BCPE tabel                 | `nlreferences`   |
+| Kind data    | Leeftijd, geslacht, meting                   | –                |
+| Formule      | Berekening van SDS, percentiel               | `centile`        |
+| Diagram      | Visualisatie van de gegevens                 | `chartbox`       |
+
+## Voorbeeld
+
+```{r echo=TRUE}
+library(nlreferences)
+library(centile)
+
+# Gewicht SDS, jongen 1 maand oud, 4 KG using built-in WHO references
+# Gewicht SDS, meisje, 1 maand oud, 4 KG using built-in WHO references
+y <- c(4, 4)
+x <- c(1/12, 1/12)
+refcode <- c("who_2006_wgt_male_", "who_2006_wgt_female_")
+y2z(y, x, refcode)
+```
+
+

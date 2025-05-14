@@ -4,7 +4,7 @@ title: "Practicum 3"
 
 ### Doel
 
-Het doel van dit practicum is om de concepten van Z-scores en screening te begrijpen en toe te passen. 
+Het doel van dit practicum is om de concepten van SDS en screening te begrijpen en toe te passen. 
 
 - In dit practicum werken we met de `centile` en `nlreferences` packages voor referentiewaarden
 - We gebruiken referentiewaarden voor de screening op groei van kinderen m.b.v. het `growthscreener` package

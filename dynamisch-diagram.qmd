@@ -24,120 +24,14 @@ format:
     df-print: paged
 ---
 
+```{r include=FALSE}
+library(plotly)
+library(dplyr)
+```
+
+
 ##  Dynamisch Diagram {background-image="img/Afbeelding1.jpg" background-size="100%"}
 
-## Vier vragen bij groei en ontwikkeling
-
-<br> 
-
-::: {.incremental}
-
-### Evalueren
-
-1. Waar staat het kind t.o.v. leeftijdgenoten?
-2. Past de recente groei bij de eerdere metingen van het kind?
-
-<br>
-
-### Voorspellen
-
-3. Hoe zal het kind in de toekomst groeien?
-4. Geeft deze verwachting aanleiding tot acties nu?
-
-:::
-
-## 
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-```{r}
-#| label: spaghetti-cm
-#| echo: false
-
-library(dplyr)
-library(plotly)
-library(donorloader)
-library(bdsreader)
-set.seed(seed = 2)
-n <- 100
-ids <- load_data(dnr = "smocc", element = "time") |> 
-  pull(id) |> 
-  sample(size = n) |> 
-  sort()
-df <- load_data(dnr = "smocc", element = "time") |> 
-  select(src, id, rec, age, sex, bw, ga, hgt, hgt_z) |> 
-  filter(id %in% ids)
-shared <- df |> 
-  highlight_key(~ id)
-base <- plot_ly(shared, 
-                color = I("#001571"),
-                width = 650, 
-                height = 650) |> 
-  group_by(id)
-cm <- base |> 
-  config(displayModeBar = FALSE) |> 
-  layout(
-    xaxis = list(
-      range = list(-0.02, 2.25),
-      rangemode = "tozero",
-      dtick = 0.25,
-      tick0 = 0,
-      ticklabelstep = 0.25,
-      title = "Leeftijd in jaren",
-      zeroline = FALSE),
-    yaxis = list(
-      range = list(40, 100), 
-      title = "Lengte (cm)"
-    )
-  ) |> 
-  group_by(id) |> 
-  add_lines(x = ~ age, y = ~ hgt)
-cm
-
-# 54088 Kunt niet zien dat start meer dan 1 SD afneemt
-# 34077 Prematuur
-# 14028 Wanneer is moment van ingrijpen?
-# 53094 Toename van 1 SD slecht te zien
-```
-
-:::
-
-::: {.column width="50%"}
-
-```{r}
-#| label: spaghetti-sds
-#| echo: false
-base <- plot_ly(shared, 
-                color = I("#001571"),
-                width = 650, 
-                height = 650) |> 
-  group_by(id)
-sds <- base |> 
-  config(displayModeBar = FALSE) |> 
-  layout(
-    xaxis = list(
-      range = list(-0.02, 2.25),
-      rangemode = "tozero",
-      dtick = 0.25,
-      tick0 = 0,
-      ticklabelstep = 0.25,
-      title = "Leeftijd in jaren",
-      zeroline = FALSE),
-    yaxis = list(
-      range = list(-4, 4), 
-      title = "Lengte (SDS)"
-    )
-  ) |> 
-  group_by(id) |> 
-  add_lines(x = ~ age, y = ~ hgt_z)
-sds
-```
-
-:::
-
-::::
 
 ## Ontwerp - nieuwe elementen
 

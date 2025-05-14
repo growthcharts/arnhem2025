@@ -2,6 +2,10 @@
 title: "Introductie"
 ---
 
+##
+
+![](img/james-connects.png)
+
 ## JAMES: Maak gebruik makkelijk
 
 - JAMES [Joint Automatic Measurement and Evaluation System](https://james.groeidiagrammen.nl)
@@ -16,18 +20,28 @@ title: "Introductie"
 3. Screening op afwijkingen in lengte, gewicht en hoofdomtrek
 4. Zet Van Wiechen scores om naar D-score
 5. Voorspelling toekomstige groei en ontwikkeling
+6. Na 30 minutes wist JAMES alle sessie data
 
 ### JAMES Live demo
 
 <https://tnochildhealthstatistics.shinyapps.io/james_tryout/>
 
-## Samenvatting
+## Pipeline
 
-- Drie modellen voor individuele risicoschattingen
-- Paneel voor gegevensbeoordeling van kindinformatie
-- **Tafel van Tien** voor het communiceren van risico's
-- **JAMES** maakt het gemakkelijk te gebruiken
+- Front End: DD-JGZ en/of JAMES
+- Middle End:
+  + DD-JGZ leverancier, database
+  + Eaglescience server, Open JAMES server
+- Back end: Rekenen, Referentiewaarden, R-packages
 
-## Referenties
+## Wanneer wat? 
 
-
+- Individuele analyse: **JAMES/iJGZ/DD-JGZ**
+  + Monitoren groei en ontwikkeling
+  + Voorspellen
+  + Signaleren
+- Groeps analyse: **R-packages**
+  + Voorspellen
+  + Epidemiologische studies
+  + Adviseren
+  + Rapporteren, dienstverlening

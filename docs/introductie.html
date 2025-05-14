@@ -106,12 +106,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">D-score</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./zscore.html">
- <span class="dropdown-text">Z-score</span></a>
+    <a class="dropdown-item" href="./sds.html">
+ <span class="dropdown-text">SDS</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./screening.html">
- <span class="dropdown-text">Screening</span></a>
+    <a class="dropdown-item" href="./signalering.html">
+ <span class="dropdown-text">Signalering</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./dynamisch-diagram.html">
@@ -164,13 +164,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#james-maak-gebruik-makkelijk" id="toc-james-maak-gebruik-makkelijk" class="nav-link active" data-scroll-target="#james-maak-gebruik-makkelijk">JAMES: Maak gebruik makkelijk</a>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#james-maak-gebruik-makkelijk" id="toc-james-maak-gebruik-makkelijk" class="nav-link" data-scroll-target="#james-maak-gebruik-makkelijk">JAMES: Maak gebruik makkelijk</a>
   <ul class="collapse">
   <li><a href="#james-kenmerken" id="toc-james-kenmerken" class="nav-link" data-scroll-target="#james-kenmerken">JAMES: Kenmerken</a></li>
   <li><a href="#james-live-demo" id="toc-james-live-demo" class="nav-link" data-scroll-target="#james-live-demo">JAMES Live demo</a></li>
   </ul></li>
-  <li><a href="#samenvatting" id="toc-samenvatting" class="nav-link" data-scroll-target="#samenvatting">Samenvatting</a></li>
-  <li><a href="#referenties" id="toc-referenties" class="nav-link" data-scroll-target="#referenties">Referenties</a></li>
+  <li><a href="#pipeline" id="toc-pipeline" class="nav-link" data-scroll-target="#pipeline">Pipeline</a></li>
+  <li><a href="#wanneer-wat" id="toc-wanneer-wat" class="nav-link" data-scroll-target="#wanneer-wat">Wanneer wat?</a></li>
   </ul>
 </nav>
     </div>
@@ -196,6 +197,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+<p><img src="img/james-connects.png" class="img-fluid"></p>
+</section>
 <section id="james-maak-gebruik-makkelijk" class="level2">
 <h2 class="anchored" data-anchor-id="james-maak-gebruik-makkelijk">JAMES: Maak gebruik makkelijk</h2>
 <ul>
@@ -212,6 +217,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Screening op afwijkingen in lengte, gewicht en hoofdomtrek</li>
 <li>Zet Van Wiechen scores om naar D-score</li>
 <li>Voorspelling toekomstige groei en ontwikkeling</li>
+<li>Na 30 minutes wist JAMES alle sessie data</li>
 </ol>
 </section>
 <section id="james-live-demo" class="level3">
@@ -219,17 +225,35 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="https://tnochildhealthstatistics.shinyapps.io/james_tryout/" class="uri">https://tnochildhealthstatistics.shinyapps.io/james_tryout/</a></p>
 </section>
 </section>
-<section id="samenvatting" class="level2">
-<h2 class="anchored" data-anchor-id="samenvatting">Samenvatting</h2>
+<section id="pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="pipeline">Pipeline</h2>
 <ul>
-<li>Drie modellen voor individuele risicoschattingen</li>
-<li>Paneel voor gegevensbeoordeling van kindinformatie</li>
-<li><strong>Tafel van Tien</strong> voor het communiceren van risico’s</li>
-<li><strong>JAMES</strong> maakt het gemakkelijk te gebruiken</li>
+<li>Front End: DD-JGZ en/of JAMES</li>
+<li>Middle End:
+<ul>
+<li>DD-JGZ leverancier, database</li>
+<li>Eaglescience server, Open JAMES server</li>
+</ul></li>
+<li>Back end: Rekenen, Referentiewaarden, R-packages</li>
 </ul>
 </section>
-<section id="referenties" class="level2">
-<h2 class="anchored" data-anchor-id="referenties">Referenties</h2>
+<section id="wanneer-wat" class="level2">
+<h2 class="anchored" data-anchor-id="wanneer-wat">Wanneer wat?</h2>
+<ul>
+<li>Individuele analyse: <strong>JAMES/iJGZ/DD-JGZ</strong>
+<ul>
+<li>Monitoren groei en ontwikkeling</li>
+<li>Voorspellen</li>
+<li>Signaleren</li>
+</ul></li>
+<li>Groeps analyse: <strong>R-packages</strong>
+<ul>
+<li>Voorspellen</li>
+<li>Epidemiologische studies</li>
+<li>Adviseren</li>
+<li>Rapporteren, dienstverlening</li>
+</ul></li>
+</ul>
 
 
 </section>

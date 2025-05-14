@@ -21,10 +21,10 @@ website:
             href: introductie.qmd
           - text: "D-score"
             href: dscore.qmd
-          - text: "Z-score"
-            href: zscore.qmd
-          - text: "Screening"
-            href: screening.qmd
+          - text: "SDS"
+            href: sds.qmd
+          - text: "Signalering"
+            href: signalering.qmd
           - text: "Dynamisch Diagram"
             href: dynamisch-diagram.qmd
           - text: "Tafel van Tien"

@@ -13,16 +13,25 @@ title: "Introductie"
 - Open-source RESTful API
 - Tools om de gezondheid van kinderen te monitoren, risico’s te identificeren en passende zorg te ondersteunen
 
-### JAMES: Kenmerken
+## JAMES: Kenmerken
 
 1. Toegang tot hoogwaardige groeidiagrammen die worden gebruikt door de Nederlandse jeugdgezondheidszorg
 2. Gegevensuitwisseling gecodeerd volgens de [Basisdataset JGZ 4.0.1](https://www.ncj.nl/onderwerp/digitaal-dossier-jgz/bds-jgz-versiebeheer/).
 3. Screening op afwijkingen in lengte, gewicht en hoofdomtrek
 4. Zet Van Wiechen scores om naar D-score
 5. Voorspelling toekomstige groei en ontwikkeling
-6. Na 30 minutes wist JAMES alle sessie data
+6. JAMES bewaart geen gegevens. Na 30 minutes wist JAMES alle sessie data
 
-### JAMES Live demo
+## JAMES: Wat ziet de gebruiker
+
+- Gescheiden:
+  + front-end applicatie: DD-JGZ
+  + back-end applicatie: database, JAMES server
+- Gemengd:
+  + front-end applicatie: DD-JGZ + JAMES
+  + back-end applicatie: database, JAMES server
+
+## JAMES Live demo
 
 <https://tnochildhealthstatistics.shinyapps.io/james_tryout/>
 
@@ -45,3 +54,50 @@ title: "Introductie"
   + Epidemiologische studies
   + Adviseren
   + Rapporteren, dienstverlening
+
+## JAMES Actieve R packages
+
+Active packages reside on the JAMES server and provide all functionality.
+
+| Package | Open | Description                                            |
+|:--------|:-----|:-------------------------------------------------------|
+| [`james`](https://github.com/growthcharts/james) | Y | Joint Automatic Measurement and Evaluation System |
+| [`brokenstick`](https://github.com/growthcharts/brokenstick) | Y | Broken Stick Model for Irregular Longitudinal Data |
+| [`nlreferences`](https://github.com/growthcharts/nlreferences) | Y | Growth References for Children living in The Netherlands |
+| [`centile`](https://github.com/growthcharts/centile) | Y | Translate Measurements, Z-Scores and Centiles with the RIF format |
+| [`chartbox`](https://github.com/growthcharts/chartbox) | Y | Collection of Growth Charts |
+| [`chartcatalog`](https://github.com/growthcharts/chartcatalog) | Y | Catalog of JAMES Growth Charts |
+| [`chartplotter`](https://github.com/growthcharts/chartplotter) | Y | Analysing and Plotting Growth Curves |
+| [`curvematching`](https://github.com/growthcharts/curvematching) | Y | Personalised Prediction by Matching Invididuals |
+| [`donorloader`](https://github.com/growthcharts/donorloader) | N | Loads Donor Data from Package or Database |
+| [`donordata`](https://github.com/stefvanbuuren/donordata) | N | Longitudinal Data for Curve Matching |
+| [`dscore`](https://github.com/D-score/dscore) | Y | D-Score for Child Development |
+| [`bdsreader`](https://github.com/growthcharts/bdsreader) | Y | Read Data from the Basisdataset Jeugdgezondheidszorg |
+| [`bdsmodels`](https://github.com/growthcharts/bdsreader) | Y | Risk models for the Basisdataset Jeugdgezondheidszorg |
+| [`growthscreener`](https://github.com/growthcharts/growthscreener) | Y | Finding Children with Unusual Growth Patterns |
+| [`jamesclient`](https://github.com/growthcharts/jamesclient) | Y | Client-side R Functions for JAMES |
+| [`jamesdemodata`](https://github.com/growthcharts/jamesdemodata) | Y | Demo Data for JAMES |
+| [`jamesdemo`](https://github.com/growthcharts/jamesdemo) | Y | App to interact with the JAMES chart site |
+| [`jamesdocs`](https://github.com/growthcharts/jamesdocs) | Y | JAMES Documentation |
+
+## JAMES Ondersteunende R packages
+
+Support packages produce half-fabricated materials, provide testing or store documentation, or are in development.
+
+| Package | Open | Description                                            |
+|:--------|:-----|:-------------------------------------------------------|
+| [`arnhem2025`](https://github.com/growthcharts/arnhem2025) | Y | Effective Use of JAMES |
+| [`bdsschema`](https://github.com/stefvanbuuren/bdsschema) | Y | Data Exchange Tools for the Basisdataset JGZ (verouderd) |
+| [`clopus`](https://github.com/stefvanbuuren/clopus) | N | Reference Encyclopedia (verouderd) |
+| [`chartdesigner`](https://github.com/stefvanbuuren/chartdesigner) | N | Design Growth Charts for JAMES (verouderd) |
+| [`jamesdocker`](https://github.com/growtcharts/jamesdocker) | N | JAMES Docker API |
+
+## JAMES In ontwikkeling
+
+| Package | Open | Description                                            |
+|:--------|:-----|:-------------------------------------------------------|
+| [`jesse`](https://github.com/growthcharts/jesse) | N | Shiny server for JAMES |
+| [`tab10`](https://github.com/growthcharts/tab10) | N | Tafel van Tien |
+| [`multikaart`](https://github.com/stefvanbuuren/multikaart) | N | Interactieve Diagrammen voor Groei en Ontwikkeling van Kinderen |
+| [`stadia`](https://github.com/stefvanbuuren/stadia) | N | Groeidiagrammen voor stadia |
+| [`flags`](https://github.com/stefvanbuuren/flags) | N | flags: Fast Longitudinal Adaptive Growth Charts |

@@ -165,13 +165,15 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
-  <li><a href="#james-maak-gebruik-makkelijk" id="toc-james-maak-gebruik-makkelijk" class="nav-link" data-scroll-target="#james-maak-gebruik-makkelijk">JAMES: Maak gebruik makkelijk</a>
-  <ul class="collapse">
+  <li><a href="#james-maak-gebruik-makkelijk" id="toc-james-maak-gebruik-makkelijk" class="nav-link" data-scroll-target="#james-maak-gebruik-makkelijk">JAMES: Maak gebruik makkelijk</a></li>
   <li><a href="#james-kenmerken" id="toc-james-kenmerken" class="nav-link" data-scroll-target="#james-kenmerken">JAMES: Kenmerken</a></li>
+  <li><a href="#james-wat-ziet-de-gebruiker" id="toc-james-wat-ziet-de-gebruiker" class="nav-link" data-scroll-target="#james-wat-ziet-de-gebruiker">JAMES: Wat ziet de gebruiker</a></li>
   <li><a href="#james-live-demo" id="toc-james-live-demo" class="nav-link" data-scroll-target="#james-live-demo">JAMES Live demo</a></li>
-  </ul></li>
   <li><a href="#pipeline" id="toc-pipeline" class="nav-link" data-scroll-target="#pipeline">Pipeline</a></li>
   <li><a href="#wanneer-wat" id="toc-wanneer-wat" class="nav-link" data-scroll-target="#wanneer-wat">Wanneer wat?</a></li>
+  <li><a href="#james-actieve-r-packages" id="toc-james-actieve-r-packages" class="nav-link" data-scroll-target="#james-actieve-r-packages">JAMES Actieve R packages</a></li>
+  <li><a href="#james-ondersteunende-r-packages" id="toc-james-ondersteunende-r-packages" class="nav-link" data-scroll-target="#james-ondersteunende-r-packages">JAMES Ondersteunende R packages</a></li>
+  <li><a href="#james-in-ontwikkeling" id="toc-james-in-ontwikkeling" class="nav-link" data-scroll-target="#james-in-ontwikkeling">JAMES In ontwikkeling</a></li>
   </ul>
 </nav>
     </div>
@@ -209,21 +211,36 @@ ul.task-list li input[type="checkbox"] {
 <li>Open-source RESTful API</li>
 <li>Tools om de gezondheid van kinderen te monitoren, risico’s te identificeren en passende zorg te ondersteunen</li>
 </ul>
-<section id="james-kenmerken" class="level3">
-<h3 class="anchored" data-anchor-id="james-kenmerken">JAMES: Kenmerken</h3>
+</section>
+<section id="james-kenmerken" class="level2">
+<h2 class="anchored" data-anchor-id="james-kenmerken">JAMES: Kenmerken</h2>
 <ol type="1">
 <li>Toegang tot hoogwaardige groeidiagrammen die worden gebruikt door de Nederlandse jeugdgezondheidszorg</li>
 <li>Gegevensuitwisseling gecodeerd volgens de <a href="https://www.ncj.nl/onderwerp/digitaal-dossier-jgz/bds-jgz-versiebeheer/">Basisdataset JGZ 4.0.1</a>.</li>
 <li>Screening op afwijkingen in lengte, gewicht en hoofdomtrek</li>
 <li>Zet Van Wiechen scores om naar D-score</li>
 <li>Voorspelling toekomstige groei en ontwikkeling</li>
-<li>Na 30 minutes wist JAMES alle sessie data</li>
+<li>JAMES bewaart geen gegevens. Na 30 minutes wist JAMES alle sessie data</li>
 </ol>
 </section>
-<section id="james-live-demo" class="level3">
-<h3 class="anchored" data-anchor-id="james-live-demo">JAMES Live demo</h3>
-<p><a href="https://tnochildhealthstatistics.shinyapps.io/james_tryout/" class="uri">https://tnochildhealthstatistics.shinyapps.io/james_tryout/</a></p>
+<section id="james-wat-ziet-de-gebruiker" class="level2">
+<h2 class="anchored" data-anchor-id="james-wat-ziet-de-gebruiker">JAMES: Wat ziet de gebruiker</h2>
+<ul>
+<li>Gescheiden:
+<ul>
+<li>front-end applicatie: DD-JGZ</li>
+<li>back-end applicatie: database, JAMES server</li>
+</ul></li>
+<li>Gemengd:
+<ul>
+<li>front-end applicatie: DD-JGZ + JAMES</li>
+<li>back-end applicatie: database, JAMES server</li>
+</ul></li>
+</ul>
 </section>
+<section id="james-live-demo" class="level2">
+<h2 class="anchored" data-anchor-id="james-live-demo">JAMES Live demo</h2>
+<p><a href="https://tnochildhealthstatistics.shinyapps.io/james_tryout/" class="uri">https://tnochildhealthstatistics.shinyapps.io/james_tryout/</a></p>
 </section>
 <section id="pipeline" class="level2">
 <h2 class="anchored" data-anchor-id="pipeline">Pipeline</h2>
@@ -254,6 +271,190 @@ ul.task-list li input[type="checkbox"] {
 <li>Rapporteren, dienstverlening</li>
 </ul></li>
 </ul>
+</section>
+<section id="james-actieve-r-packages" class="level2">
+<h2 class="anchored" data-anchor-id="james-actieve-r-packages">JAMES Actieve R packages</h2>
+<p>Active packages reside on the JAMES server and provide all functionality.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Package</th>
+<th style="text-align: left;">Open</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/james"><code>james</code></a></td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">Joint Automatic Measurement and Evaluation System</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/brokenstick"><code>brokenstick</code></a></td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">Broken Stick Model for Irregular Longitudinal Data</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/nlreferences"><code>nlreferences</code></a></td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">Growth References for Children living in The Netherlands</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/centile"><code>centile</code></a></td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">Translate Measurements, Z-Scores and Centiles with the RIF format</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/chartbox"><code>chartbox</code></a></td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">Collection of Growth Charts</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/chartcatalog"><code>chartcatalog</code></a></td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">Catalog of JAMES Growth Charts</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/chartplotter"><code>chartplotter</code></a></td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">Analysing and Plotting Growth Curves</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/curvematching"><code>curvematching</code></a></td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">Personalised Prediction by Matching Invididuals</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/donorloader"><code>donorloader</code></a></td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">Loads Donor Data from Package or Database</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/stefvanbuuren/donordata"><code>donordata</code></a></td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">Longitudinal Data for Curve Matching</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/D-score/dscore"><code>dscore</code></a></td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">D-Score for Child Development</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/bdsreader"><code>bdsreader</code></a></td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">Read Data from the Basisdataset Jeugdgezondheidszorg</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/bdsreader"><code>bdsmodels</code></a></td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">Risk models for the Basisdataset Jeugdgezondheidszorg</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/growthscreener"><code>growthscreener</code></a></td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">Finding Children with Unusual Growth Patterns</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/jamesclient"><code>jamesclient</code></a></td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">Client-side R Functions for JAMES</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/jamesdemodata"><code>jamesdemodata</code></a></td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">Demo Data for JAMES</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/jamesdemo"><code>jamesdemo</code></a></td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">App to interact with the JAMES chart site</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/jamesdocs"><code>jamesdocs</code></a></td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">JAMES Documentation</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="james-ondersteunende-r-packages" class="level2">
+<h2 class="anchored" data-anchor-id="james-ondersteunende-r-packages">JAMES Ondersteunende R packages</h2>
+<p>Support packages produce half-fabricated materials, provide testing or store documentation, or are in development.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Package</th>
+<th style="text-align: left;">Open</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/arnhem2025"><code>arnhem2025</code></a></td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">Effective Use of JAMES</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/stefvanbuuren/bdsschema"><code>bdsschema</code></a></td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;">Data Exchange Tools for the Basisdataset JGZ (verouderd)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/stefvanbuuren/clopus"><code>clopus</code></a></td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">Reference Encyclopedia (verouderd)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/stefvanbuuren/chartdesigner"><code>chartdesigner</code></a></td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">Design Growth Charts for JAMES (verouderd)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/growtcharts/jamesdocker"><code>jamesdocker</code></a></td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">JAMES Docker API</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="james-in-ontwikkeling" class="level2">
+<h2 class="anchored" data-anchor-id="james-in-ontwikkeling">JAMES In ontwikkeling</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Package</th>
+<th style="text-align: left;">Open</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/jesse"><code>jesse</code></a></td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">Shiny server for JAMES</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/growthcharts/tab10"><code>tab10</code></a></td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">Tafel van Tien</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/stefvanbuuren/multikaart"><code>multikaart</code></a></td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">Interactieve Diagrammen voor Groei en Ontwikkeling van Kinderen</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/stefvanbuuren/stadia"><code>stadia</code></a></td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">Groeidiagrammen voor stadia</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/stefvanbuuren/flags"><code>flags</code></a></td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">flags: Fast Longitudinal Adaptive Growth Charts</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>

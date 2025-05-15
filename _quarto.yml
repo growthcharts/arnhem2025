@@ -23,8 +23,6 @@ website:
             href: dscore.qmd
           - text: "SDS"
             href: sds.qmd
-          - text: "Signalering"
-            href: signalering.qmd
           - text: "Dynamisch Diagram"
             href: dynamisch-diagram.qmd
           - text: "Tafel van Tien"

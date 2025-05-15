@@ -9,6 +9,10 @@
 _freeze/
 _site/
 
+# dscore temporaries
+dscore_cache/
+dscore_files/
+
 # Mac
 .DS_Store
 
